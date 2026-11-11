@@ -49,25 +49,28 @@ header.top{background:var(--navy);color:#fff;border-bottom:5px solid var(--fuchs
 .cred .r{font-size:12px;color:#cbd2de;font-weight:500}
 @media (max-width:700px){.cred{text-align:left}}
 /* alerta de inicio */
-.hero{padding:30px 0 6px}
+.hero{padding:16px 0 4px}
 .alarm-tag{display:inline-flex;align-items:center;gap:8px;background:var(--fuchsia);color:#fff;font:900 13px var(--display);letter-spacing:.12em;text-transform:uppercase;border-radius:6px;padding:6px 12px}
 .alarm-tag .dot{width:9px;height:9px;border-radius:50%;background:#fff}
 @media (prefers-reduced-motion:no-preference){.alarm-tag .dot{animation:blink 1.2s infinite}}
 @keyframes blink{50%{opacity:.25}}
-.hero h1{font-size:clamp(32px,5vw,54px);font-weight:900;line-height:1.02;text-transform:uppercase;margin-top:14px}
+.hero h1{font-size:clamp(24px,3.4vw,40px);font-weight:900;line-height:1.02;text-transform:uppercase;margin-top:10px}
 .hero h1 .acc{color:var(--fuchsia)}
-.hero .sub{color:var(--muted);font-size:18px;margin-top:12px}
-.alarms{display:grid;grid-template-columns:repeat(3,1fr);gap:12px;margin-top:20px}
+.hero .sub{color:var(--muted);font-size:16px;margin-top:6px}
+.alarms{display:grid;grid-template-columns:repeat(4,1fr);gap:8px;margin-top:12px}
 @media (max-width:900px){.alarms{grid-template-columns:1fr 1fr}}
-@media (max-width:600px){.alarms{grid-template-columns:1fr}}
-.al{background:var(--paper);border:1px solid var(--line);border-left:6px solid var(--fuchsia);border-radius:10px;padding:14px 16px;display:grid;gap:6px;box-shadow:0 2px 8px rgba(15,23,42,.06)}
-.al .big{font-family:var(--display);font-weight:900;font-size:26px;line-height:1.05;color:var(--fuchsia-dark)}
-.al p{font-size:15.5px}
-.al .artc{margin-top:auto}
+.al{background:var(--paper);border:1px solid var(--line);border-left:5px solid var(--fuchsia);border-radius:8px;padding:8px 12px;display:grid;gap:2px;align-content:start;box-shadow:0 1px 4px rgba(15,23,42,.06)}
+.al .big{font-family:var(--display);font-weight:900;font-size:21px;line-height:1.08;color:var(--fuchsia-dark)}
+.al p{font-size:14px;line-height:1.3}
+.al .artc{margin-top:2px;font-size:11.5px}
+.al.b{border-left-color:#2a78d6} .al.b .big{color:#1d5fa8}
 .al.g{border-left-color:var(--save)} .al.g .big{color:var(--save)}
 .al.wide{grid-column:1/-1;border-left-color:#2a78d6;background:linear-gradient(90deg,#eef5fd,#fff 60%)} .al.wide .big{color:#1d5fa8}
 .al.p{border-left-color:var(--purple)} .al.p .big{color:var(--purple)}
-.byline{margin-top:16px;font-size:13.5px;color:var(--muted)}
+@media (max-width:600px){.al{padding:6px 9px;border-left-width:4px}.al .big{font-size:16.5px}.al p{font-size:12.5px}.al .artc{font-size:10.5px}.hero .sub{font-size:14px}}
+.pf .share{flex-basis:100%;margin:6px 0 0;font-size:11.5px;line-height:1.35;color:var(--muted)}
+.share{font-size:12.5px;color:var(--muted);margin-top:8px;line-height:1.35}
+.byline{margin-top:8px;font-size:13.5px;color:var(--muted)}
 .byline b{color:var(--ink);font-weight:700}
 /* bloques */
 section.blk{margin-top:28px}
@@ -153,10 +156,38 @@ ul{margin:6px 0 0;padding-left:20px} li{margin-bottom:5px}
 footer{margin:36px 0 0;background:var(--navy);color:#cbd2de;font-size:13.5px}
 footer .inner{padding:22px 24px}
 footer a{color:#f9a8d4} footer b{color:#fff}
+/* ventana de incoherencias */
+#pop2-unused{position:fixed;inset:0;background:rgba(15,23,42,.72);display:grid;place-items:center;padding:16px;z-index:51}
+#pop2[hidden]{display:none}
+#pop2 .box{background:#fff;border-radius:16px;max-width:760px;width:100%;max-height:92vh;overflow:auto;box-shadow:0 20px 60px rgba(0,0,0,.35)}
+#pop2 .ph{background:var(--navy);color:#fff;padding:20px 24px;border-bottom:5px solid var(--purple)}
+#pop2 .ph h2{color:#fff;font-size:24px;line-height:1.15;margin-top:8px}
+#pop2 .ph p{color:#cbd2de;font-size:14.5px;margin-top:6px}
+#pop2 .pb{padding:18px 24px;display:grid;gap:10px}
+.inc{display:grid;grid-template-columns:1fr 1fr;border:1px solid var(--line);border-radius:10px;overflow:hidden}
+@media (max-width:600px){.inc{grid-template-columns:1fr}}
+.inc .d{background:#f5effc;padding:12px 14px}
+.inc .r{background:#fdf2f8;padding:12px 14px}
+.inc .lbl{font:800 11.5px var(--display);text-transform:uppercase;letter-spacing:.08em;margin-bottom:4px}
+.inc .d .lbl{color:var(--purple)} .inc .r .lbl{color:var(--fuchsia-dark)}
+.inc .ttl{font:800 14px var(--display);margin-bottom:6px}
+.inc .d .ttl{color:var(--purple)} .inc .r .ttl{color:var(--fuchsia-dark)}
+#pop2-t:focus{outline:none}
+.inc-h{position:sticky;top:0;z-index:2}
+.dgsec{display:grid;gap:10px;margin-top:6px;padding-top:16px;border-top:3px solid var(--purple)}
+.dgt{font-size:24px;color:var(--purple)}
+.inc-h .d,.inc-h .r{display:flex;align-items:center;gap:12px;font:800 16px var(--display)}
+.inc-h .d{background:var(--purple);color:#fff} .inc-h .r{background:var(--fuchsia);color:#fff}
+.av{position:relative;flex:none;width:56px;height:56px;border-radius:50%;background:#fff;color:var(--purple);display:grid;place-items:center;font:900 18px var(--display);overflow:hidden;border:3px solid #fff}
+.av img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover}
+.inc q{font-weight:700;quotes:"«" "»"}
+.inc .w{display:block;font-size:12.5px;color:var(--muted);margin-top:4px}
+#pop2 .pf{padding:0 24px 22px;display:flex;flex-wrap:wrap;gap:10px;justify-content:flex-end}
+.tag2{display:inline-flex;align-items:center;gap:8px;background:var(--purple);color:#fff;font:900 13px var(--display);letter-spacing:.12em;text-transform:uppercase;border-radius:6px;padding:6px 12px}
 /* ventana de bienvenida */
 #pop{position:fixed;inset:0;background:rgba(15,23,42,.72);display:grid;place-items:center;padding:16px;z-index:50}
 #pop[hidden]{display:none}
-#pop .box{background:#fff;border-radius:16px;max-width:620px;width:100%;max-height:92vh;overflow:auto;box-shadow:0 20px 60px rgba(0,0,0,.35)}
+#pop .box{background:#fff;border-radius:16px;max-width:780px;width:100%;max-height:92vh;overflow:auto;box-shadow:0 20px 60px rgba(0,0,0,.35)}
 #pop .ph{background:var(--navy);color:#fff;padding:20px 24px;border-bottom:5px solid var(--fuchsia);display:flex;gap:14px;align-items:center}
 #pop .ph img{width:64px;height:64px;border-radius:10px;background:#fff;padding:3px}
 #pop .ph h2{color:#fff;font-size:22px;line-height:1.15}
@@ -180,11 +211,27 @@ footer a{color:#f9a8d4} footer b{color:#fff}
         <li>Ver cuánto le costaría su cosecha en 2027, en 2028 y de 2029 en adelante, con el artículo del proyecto que causa cada aumento.</li>
         <li>Comparar lo que pierde el productor con lo que se ahorra la gran molinería.</li>
       </ul>
-      <p class="note">Trae valores de referencia de la UPRA para Tolima, Huila, Valle del Cauca, Meta y los Llanos. Es un instrumento de análisis: confirme las cifras antes de usarlas en público.</p>
+      <p class="note">Trae valores de referencia de la UPRA para Tolima, Huila, Valle del Cauca, Meta y los Llanos. Analiza solo el texto radicado el 29 de octubre de 2026; los resultados son simulaciones con supuestos explícitos, no predicciones ni cifras oficiales.</p>
+      <div id="pop-dg" class="dgsec">
+        <span class="tag2">Alerta arrocera</span>
+        <h2 class="dgt">El doble discurso del Gobierno con el arroz</h2>
+        <p class="note" style="margin-bottom:6px">Las propias palabras del ministro de Agricultura frente al proyecto de ley que radicó su gobierno el 29 de octubre de 2026.</p>
+
+      <div class="inc inc-h"><div class="d"><span class="av"><img src="data:image/jpeg;base64,/9j/4AAQSkZJRgABAQAAAQABAAD/2wBDAAUDBAQEAwUEBAQFBQUGBwwIBwcHBw8LCwkMEQ8SEhEPERETFhwXExQaFRERGCEYGh0dHx8fExciJCIeJBweHx7/2wBDAQUFBQcGBw4ICA4eFBEUHh4eHh4eHh4eHh4eHh4eHh4eHh4eHh4eHh4eHh4eHh4eHh4eHh4eHh4eHh4eHh4eHh7/wAARCACgAKADASIAAhEBAxEB/8QAHwAAAQUBAQEBAQEAAAAAAAAAAAECAwQFBgcICQoL/8QAtRAAAgEDAwIEAwUFBAQAAAF9AQIDAAQRBRIhMUEGE1FhByJxFDKBkaEII0KxwRVS0fAkM2JyggkKFhcYGRolJicoKSo0NTY3ODk6Q0RFRkdISUpTVFVWV1hZWmNkZWZnaGlqc3R1dnd4eXqDhIWGh4iJipKTlJWWl5iZmqKjpKWmp6ipqrKztLW2t7i5usLDxMXGx8jJytLT1NXW19jZ2uHi4+Tl5ufo6erx8vP09fb3+Pn6/8QAHwEAAwEBAQEBAQEBAQAAAAAAAAECAwQFBgcICQoL/8QAtREAAgECBAQDBAcFBAQAAQJ3AAECAxEEBSExBhJBUQdhcRMiMoEIFEKRobHBCSMzUvAVYnLRChYkNOEl8RcYGRomJygpKjU2Nzg5OkNERUZHSElKU1RVVldYWVpjZGVmZ2hpanN0dXZ3eHl6goOEhYaHiImKkpOUlZaXmJmaoqOkpaanqKmqsrO0tba3uLm6wsPExcbHyMnK0tPU1dbX2Nna4uPk5ebn6Onq8vP09fb3+Pn6/9oADAMBAAIRAxEAPwD5i0G6REaFuMnIq7fXMaxMAc8VzcRYMCpwasFnP3iTWDVzVM9N+GviKO0WOJpCoFew2Hi+EQqolz+NfLNhJLHJmJiDXXeHpNQnmQmZgM4rKVPUtTPo608VoRxJWnb+J4yBl815t4c0q5kgVtzH8a6iDRpQM/NUezK5tDrE8TwgcuB9awfFPxK0rSkMMtwGmI+4nJ9s15/491j+yJGs45PMuAuWUNynpmvMbtBe3H2qYyNI3LZahRKjqdB408a3mv3RSJAIe49fqa5+IysCJYouecAmprK2tFOGyPxrore0t4oFZV86MjO1uv4Gri7FcjZz6adbyqWMYjduhBOM06OyimBSaLcyHB3Dn8614zHLG1vLtCnO1iPmU9qfbRNKJVfAmjTr2PpVcyB09DnJ9Lg+/FE8ZXk49PUVNp9pIHCsxxn07V09xbIgjJB2lPmz24zUKrDFcH5TsIPBHYVnOHMjFwuOj01AgYHqKpajGIoyB6VqXl6kCq6KXRh19KwNdv1kgJjHUdq5JU5J2MpQkjifEMg8wg+vFY/ar+rMXn5z071QPSvSpq0USTWDYmrudB1TyI1Acj3ri9Pi3NurYjyi8VlWSkrCZkWtqHPOc1NLasnXpXTWmlDGQv6Ut5puEJ2/pW5SOa01QbnGK9H8HWyyTRqRXnYBtb/GOCa9L8BndLG1ZyepaPafCtpH5SDb2rf1MLaaVcXWABFGXJ9ABWf4UTMafSr/AI1QnwfqAVtpMJqSj5fvUvtY1S81SUSMskhbew+Ufiao2lpdalfpZWiuDn5n7V0dxI8yBJZN6KPliXgH8K6X4c6SkVzLetCEZzhVPRRUTdk2deHp88rEnh/wfHHGEKea4GXdl6V1MXhJJIFRYwSOnaup0uyjWMMvfrW5YQxbgrYAFcUpts9mNKKSVjzabwTu+YRKHB9Ov41j3vhO8jlbEOCCDkDJIr361gtduTiraWmnSZdlTOMdKFJilSXY+eJfDdwYWMqEqVwBtrF1jw1qVwHEa7GReAeN1fTV9ZWBQBEjI9MVzGtWFvtZliHPFP2rEsLGSufJ8uryadcG3uoidjFSmP50S3q3Id1t/L4429a7X4weFI4NSg1S2j2Fz5cuORnsa4uQ/Y/3ZjViRySDXXTtKNzycRScZtHG61vF4Udy2PUVR/irR1y4FzqDFVAC/LxVArzmuqOx58tzQ0jqAa3ltSUBGCKwtJH7zFdrpUIMWSuQa5a0rLQhnXSaWEwABUFxpeYydo4FdVfwgz9Kge3/AHR47V0cw7nifie2FvqgAGMtXdfDsZljFcz8Q4RFqCMBzurpvhwcyxmpZoj6A8LjbCn0rS8UwS3Phi+ggx5jwOB+VZ3hr/UJ9K2tVcxaPdSDqsLkD14qSj5R0JriXU5EDEuWCtxxnP3RXtXhiwEFmqkAEDBHvXK6Jo8P26CVlAZAWXAxk+tdzpO4QBmGCe1YV3aNj08vj1Nix3R/LnitiBHIDLVCwgSQDc2DWtFtgOJHXaBxzXAkexGxYTeFABNO8yQAjdUI1W3hUoWX2OalF5bOoZ+vtRZouMdTPu5bvJw2B2rNne6fHmsSK35Lux+6y7sjiqV8sUifu1IqWVJqxw3j2yF/pstuo+YJlT6Ecg14L4ylFjfssnIVQRnrk19KapEoiZivOK+ZvihCf7SvGIICyAA44+lduFfQ8TMFZ3OHZt0jOR1OaTGWAHeo9xBp8J/eL9a9FHjN3Oi8P6azMrN3NdpDGsEQGOO1YHh5lYLg10UjoF29SK4a3xENnoV06GUtkYpX2+QfpWFLeksM1clu8WvTt3rVS1EjzL4n4+1KRj71bPw4kCvFk1zPxAnMt4QP71avgCTF1FzjoK0NlsfSfhdwYU+lO8eX81rZ29vEoIlJ8wHoR6VR8KTARRjI6CtLxRBHc/ZXbnquPWs6jajdG+FSlUSkY2g2Fl9mfUJFHm8KvYKKmgjVQxUjGSfoKxpbm5hj8jAWNpCAB6Vp6XJEZlSdQVx681yVqnOlc9rDUuRtFbV9dt7NGD3UcSoPvbq5DV/HelzILaG8vTI3yhkjbGa9T/4Rrw5qGDNZRFm6EDkU258BWsihbaRUUdAYgahSSN3CXQ8jsta85lZLtz82MMSDmu7hXWH8PS32V8lAT8zYOAO1ai+BdL00PM6+bKOTxxmukW2jPhR4GjGMHipbuawTitTwuDxlqMy7zfR26k/xNziup8PeLroW+GvobtenysMj8K0W+HNhdxG40+G3YsfmilHy/nWTcfCCVpPOtLePTpwdyyRTEgH6U7Rtcxk6jZvS6ul/bM0Yy3Q15F8f9Mki0i11CKArGX2yOOhJ6Zr0+38P6poUTyXs0N1gDJj4/HmvOP2iNcin8O6ZYR4V5X3uoHpW+G+M8/H35Fc8MHNSwYEq59aYoPpT4+GzivTPEaOk0q4ESgq3TrW5DqMZX5utcXDMUHGasR3J9TXNOHMyWeny3Q3HLgUt3qAa22l8ACsq6+7urNu5n8soDxWVtQRieJZlmuRtOcVe8LXQiuIyT0NY2p53g0ukuUmAB61sloa9D37w34gjSNMyV0o8QpcXNtEpDNv+XPc14npclwEBBIq0NWubHVLW5LkrFIrEE9cGolG+hVKVpps9k12NfNhZehGcYxiocus6unQDmqkWvwa/D50IwkXyg+ver1sN6bq4pxtufS0pc2qNrS9SNu67hkV01x4ks7a082SRUVVya87vZDAu9mwg6+1UbOCfVLoT3LEWitlIyfv+59vapUTqUkdtBqMusQS6gbgQwKMxQE4JHqfrW1Zapaf2V85QDB6mvNtW0m/WWS602/eAEZaM8qfwrmNSu/FM9r5djHGhzj5y2PqBWqirESlY9k0PUEtp1hlliMNxloWU85HUGtjVL6NYCyMCQK8O0Sw8QLYw3Op3oM1rJvijiBUEY5znk1u3HiSb7MIzIR2z3rOS6FRaauaHirV99vIivksMV80fFW9a68UvBv3JbKEHPfvXsuo3BuGMm/jOOTXgXipZB4kvxMQZBOwbHTrW+Ej7x4+Zz0sZ6DinYwaF4FKDmvRPFHYIFIrMD1qYDIpGjAHSpsJnf3Uu5MCs+RCwOe9advEJBkjNTSW6eWRtHSuew0jjdWhIBwM1BpEZNwufUVratHtyDWfpuEuAT61othnodhGv2cbR2rN1+PAAA5zipbG92wjB5xXVfDnwxfeJvEltc3NrMNMhPmvIyYVyvRRnrmroU3UlYzq1FCLZreEtIuNHso7K6I894hKy/wB3dyB+VdNp6/uvxrrPGXh0XEUWoWIAuYF2uoH30H+FcnanauQ3BOPoanH4V0pX6HqZXjY1aVr6oku7WC5tpY5uO6msG5t9eSYSWCI0KjkZ5Ye1dLFtmVrebrjj6VaSB44vLCkgd6874We18cdDjLfX78h43gvFcLgZt/lLfX0qnqXinVLCMyQ6cZkHHywEn613MkcoPyrj3xVKeW4jJBTch4G1a0ugjQk18RwOm+K9X1O7Kf2PcwRg/wCsZCqk+nNaE2mXy2ZvbjCI7EqnU4rrVWQgkpywxjFYXiu9e2t4oHG1VXp61m3cT/drV3OC8e6u+kaGZI8C4lYCMH+deQ3Ez3EzzzOXkkYsxPc1v+P9ZfVdYKK2YYPlXHQnua5xRzXfh4WifP4ut7WbJMfKKZuwak6LzVdzzXQchbSUdzSySgjiqQYil3+9JiPULdmjOB0JrYht/NjqK2s1kG4g4HpXXeE/D+p624h02xmnBOC6r8q/U9BXKouT0KbS3POdc004YgVm+FPDeteItZTTtEsJryctghB8qD1Y9APrX1V4d+CunNtm8SXBuiQM28J2oD7nqa9I0Pw/pOgWotdJ061s4uuIYwufqeprup4ZtXkc1TEqLstTxz4ffBC20jyr/wAUTx306kFLaPIjU/7RP3q9PSxgt5g0UaogG1VAwoHbFb9xGJAFPTrwarvGgHz9OgJr06KjTVkebV5qjuzLdODgc/pXD+KNACSNqFhG2x+Z4VHQ/wB5f616BNHJE2WO6P8APiqE6+WzOo475rWpSjWg4sijXnhp80Ty1t21ZIyfMQ8Y7j0rSsdRjkAEhAPQg9Qa2fE/huW7xfaQ0dveKOYz9yYf0PvXA3VyyXRhuIJLK8T78bjGff3r5zE4SVKeq0PssBmNOtFWevY7iGe3jj3lFYUst9aNFl4AuemQK88n1WeLO1iwHcGsS/13UbgbEBA7kuBXNKlfqeqsVpsdxrOtadYRPM7qApyT/SvHviV4naaOaZOJZwUjH91fWreozTSkC7kWTbyIgflHuT3ri7mB/EMt1sVw8SNJA4GQVX7wb29+1a4fC8zdzycbjbrlRx7jnJ601eTTmJIycfhSR9a60rHlrUfIPlFVW61ckH7vNVWHNAMjPSmd6cxpo60khH294B+EYgWK614xTMOTBk7P06/pXrmnabFZwLDbMIIlGBHFGqIPwAqxCIzGShDY4ODTyzAAAADPNeioRhpFHnSqSnqxNwRCC+85+9wD9Kh8yQk4ChScn1/GjPzEn9BTN3A9aqxDY6QyHB38H+6MGq89vE6DehY55BPf+lWASRkf/WpHb+HHPX61adiG7mc8bSMYJCcEZVt3Q+n1qlchbcFJI3kDDIcHg+2K1ZbcSRMjD73pxUSo0mYJSBMOEbsw/wAa2hOzMJRbMMyRtw7lV7c9Kzta0XStbtGtb9PPXOUYcOh9j1BrduNLBlKZ2H0HeqsmnvFIA44JwGB61u3CSMEpQldHkHiL4ea5aRyTaFfR31uM5juPklUfXo314riLrRtftsfbrQ25P94/1r6P16/tNH0xJr4qsckqw427s59u/Fch441Cx1W0ultF8u2aDZ90LuYfxY7dgK8+tl8J3nBWPaw+Z1vdjN76Hhus2rW+jXU7kPI0ZRNp6Z966z4WeE7e5sma7ZYTc2rQQkjGMqRurD8Sw3E1rpmn20bSSXF7HF5ajlwTzXrvh7T7i0kNqYDgEBUArPLKcZczZvm8nTceU+RvFGlS6LrV5pc7xyS2szRO0ZypI9DWZCMtX2b45+GPg/xXG1xqlm1jfvx9qtRg59WA4NfNPxG+Het+B9QZLqI3Fg7HyLxBlJB7+h9qnEYWVNtrYzoYiM46nHSj90apvVqc4jNUXbJrjOljXPpTTS4NBFCEfppausUh2R7WPLds/wCNSC5DShMYVvXrmqk8rxXDMuT8vOTxRBIktysajdvTK4/hx1B9K9XlueQpWLhlUybGGDn1pWGP/wBdVLwssyMSQSOP89qngkVgDzjoPSi1gvdk69OBkd6aULd9v0FOXBG40EHtSYNELFk4I3fSmPskXp93njrVg4xnaCemPWq9xHtxJGMe3rTQrCOBPHsJKSKdwOagL7xsccg5BFOkUumUOJRyP8DTLy+s7XRp9WclIYY2eXPbaOVq9dkQ1rc85+I14Z/E2nWCWQuFs1aZ9uSodumfoKzrqdZ4JY5dOiTcMZGRgnvW94GnTWdNOtrbhpb8mSWN+GQ56fTGK19X0q3k053EASQMHH4V1Yibp4aSW9jLBwUsVFyelzzzwvpsX/Ce6RPIgKQCV1BHQ7DzXok9jNLeRXkHypkYb2rndLtc+LLQ52qsbkn2IxV6DV7G91C5g03VEvFsSLeYRtlEcZyPevNyi7pN+Z7WfP8AfpdLHRkBnJU5Ge1VbzSbDULKWwvbaO4tZgRJE6ghs/yqexy65q5HE+4fKea9Od9jx4nyl8c/gte+FoJte0BZLnRc5eM/M9vn+a+9eFkc5r9MZreOe1a2uI0kjlQo6MMggjBBr4Z+P/gN/BHjKRbeI/2Xes0lqwHC88p9R/KvKxNFL3onpYeu37rPNKKkK4HSmHrXEdh+k/7xncsck8YzVTesWoQbSBl+59aszT7GU9M9cj/PH5/hWXqTt50Myg8MNwJ6ele3TieFN2NnUJwblVG0YbbjPP1pLaYee6YABHb1rIvJXTUJ0MeVG11O/wBQPwAyMVqFfkSRsjIBOMcfjSnGwovU1Yzjvx70MpLkgn8KqpJkYLde+ePzqwnPKsfwIrC1joTuO2buv5GmNlOAV5POBUuRn5icd9o5qOQHPAz+NAMrywk/vEwpPYCsPV9J+2l45XfyJDl4c/Kx9x3roGLN0BPpz/SoJc7hgAEe2K0hKxjKPMcrDYSaVcBrfCooHAGBj0roYjbXen7o5QrhipVj94H096fdRCSMhgD6GsqAG1u2iG0I53Kc9DXRUmqsdTOC5JJmAg/s241eedf3sEQiiB7sx4x/OsT4e+EotHv7ya3dhb3j73T0aux1bTBd3Tkg75GXcfUAcGr9rAkMaIgCheOeuajD040KfKjoxVd4ipzskhQIQgwOKuxnhT/dqArtKjGTj+7ip0yeMYq3K5ki253RBh17VxnxN8Hab430K40O/RFeZC9rPj5oZgOCD/OuwiYhduKpajHm3Dcq0TbgR2FY8qejNIycXdH5061p91pWp3Wm3sZjuLaVopUPUMpwazmr3D9rzQ4rHxzZeILdQses2vmSKBjEiHaT+Iwa8PevLq0+SbierSnzwUj/2Q==" alt="Ministro Indalecio Dangond"><span>ID</span></span><b>Lo que prometió el ministro Indalecio Dangond</b></div><div class="r"><b>Lo que hace con la Reforma Tributaria</b></div></div>
+      <div class="inc"><div class="d"><div class="lbl">1 sep. 2026, Huila</div><q>Vamos a trabajar para que producir alimentos en Colombia sea más barato y rentable.</q></div><div class="r">Pone 19 % de IVA al abono, los agroquímicos, la maquinaria y los servicios del campo. Una hectárea de arroz costaría entre <span id="dg-rango2">$0,8 y $1,2</span> millones más por cosecha.<span class="w">Arts. 42 y 45</span></div></div>
+      <div class="inc"><div class="d"><div class="lbl">1 sep. 2026, Huila</div><q>No podemos seguir dependiendo exclusivamente de las importaciones de fertilizantes.</q></div><div class="r">Mientras no haya planta nacional, el fertilizante importado pasa a pagar 19 % de IVA.<span class="w">Art. 42</span></div></div>
+      <div class="inc"><div class="d"><div class="lbl">8 sep. 2026, debate del Presupuesto</div><q>En el 2028 vamos a comenzar a ejecutar los grandes proyectos de inversión.</q> Prometió tecnificar los distritos de riego.</div><div class="r">En 2028 los distritos de riego empiezan a cobrar IVA sobre el agua por primera vez, y los equipos de riego pagan 19 %.<span class="w">Arts. 42 y 45</span></div></div>
+      <div class="inc"><div class="d"><div class="lbl">octubre 2026, La FM</div><q>Los costos subieron y el rendimiento por hectárea bajó.</q></div><div class="r">Señala que el arroz es caro de producir, mientras su gobierno propone encarecerlo más con IVA y con más del triple de impuesto al carbono en el ACPM.<span class="w">Arts. 42, 45 y 54</span></div></div>
+      <div class="inc"><div class="d"><div class="lbl">Antes de posesionarse</div>Defendió quitar aranceles a insumos, maquinaria y materias primas para bajar los costos.</div><div class="r">A esos mismos insumos y a la maquinaria les agrega 19 % de IVA.<span class="w">Arts. 42 y 106</span></div></div>
+      <div class="inc"><div class="d"><div class="lbl">Anuncio · 6 nov. 2026, Cumbre Cafetera</div>Subsidio de hasta 60 % para pólizas colectivas contra riesgos climáticos.</div><div class="r">El seguro agropecuario pasa de 5 % a 19 % de IVA: parte de cualquier subsidio al seguro se iría en impuesto.<span class="w">Art. 106</span></div></div>
+      <p class="note">Declaraciones tomadas de MinAgricultura, El Nuevo Siglo, Agronegocios, El Colombiano y Nación Huilense (enlaces al pie de la página). Las cifras de costos son simulaciones de esta herramienta.</p>
+    
+      </div>
     </div>
     <div class="pf">
       <span class="dev">Desarrollada por <b>Cristian López Ortiz</b>,<br>asesor UTL Senadora Laura Ahumada</span>
       <button class="go" id="pop-go">Calcular mi cultivo</button>
+      <p class="share">Al calcular, usted acepta que algunos datos de costos de producción se compartan de forma anónima con el equipo de trabajo de la Senadora Laura Ahumada, con fines exclusivamente analíticos y en defensa de la cadena arrocera. No se piden nombre, cédula ni teléfono.</p>
     </div>
   </div>
 </div>
@@ -204,9 +251,9 @@ footer a{color:#f9a8d4} footer b{color:#fff}
 
 <main class="inner">
   <section class="hero">
-    <div style="display:flex;flex-wrap:wrap;gap:10px;align-items:center"><span class="alarm-tag"><span class="dot"></span>Alerta arrocera</span><button class="btn" id="pop-open">¿Qué hace esta herramienta?</button></div>
+    <div style="display:flex;flex-wrap:wrap;gap:10px;align-items:center"><span class="alarm-tag"><span class="dot"></span>Alerta arrocera</span><button class="btn" id="pop-open">¿Qué hace esta herramienta?</button><button class="btn" id="pop2-open" style="border-color:var(--purple);color:var(--purple)">El doble discurso del Gobierno con el arroz</button></div>
     <h1>La Reforma Tributaria le cobra IVA al arroz <span class="acc">en la finca</span> y se lo perdona al molino</h1>
-    <p class="sub">El proyecto deja sin IVA el arroz que se compra en la tienda. Pero desde 2028 le cobra 19 % a casi todo lo que el arrocero necesita para producirlo, y el arrocero no lo puede recuperar. En todo el país, de los Llanos al Tolima, la cosecha sale más cara.</p>
+    <p class="sub">Desde 2028, 19 % de IVA a casi todo lo que el arrocero necesita para producir, sin poder recuperarlo. Calcule abajo cuánto le subiría a su cultivo.</p>
     <div class="alarms" id="alarms"></div>
     <p class="byline">Herramienta preparada por la UTL de la Senadora Laura Ahumada. Desarrollo y análisis del proyecto de ley: <b>Cristian López Ortiz</b>, asesor.</p>
   </section>
@@ -233,9 +280,13 @@ footer a{color:#f9a8d4} footer b{color:#fff}
             <option value="piede">Meta, piedemonte · riego</option>
             <option value="secano">Llanos (Casanare, Meta) · secano, aproximación</option>
           </select></label>
+        <div style="display:grid;grid-template-columns:1fr 1fr;gap:8px">
+        <label class="f" for="f-dep">Departamento <select id="f-dep"><option value="">Prefiero no decirlo</option></select></label>
+        <label class="f" for="f-mun">Municipio <select id="f-mun" disabled><option value="">Prefiero no decirlo</option></select></label>
+        </div>
         <label class="f" for="f-ha">¿Cuántas hectáreas siembra? <input type="number" id="f-ha" value="20" min="0" step="1"></label>
         <label class="f" for="f-cic">¿Cuántas cosechas saca al año? <input type="number" id="f-cic" value="2" min="1" max="3" step="1"></label>
-        <label class="f" for="f-yld">¿Cuántas cargas saca por hectárea? <input type="number" id="f-yld" value="57" min="1" step="1"></label>
+        <label class="f" for="f-yld">¿Cuántas cargas saca por hectárea? <input type="number" id="f-yld" value="56.8" min="1" step="0.1"></label>
         <label class="f" for="f-price">¿A cómo le pagan la carga de paddy verde? ($) <span class="note">Viene puesto el precio promedio en Ibagué (Tolima), julio de 2026: $1.110 por kilo. Ponga el que le pagan a usted.</span><input type="number" id="f-price" value="138750" min="0" step="1000"></label>
         <label class="f" for="f-gal">Galones de ACPM por hectárea en cada cosecha (máquinas propias o contratadas) <input type="number" id="f-gal" value="30" min="0" step="1"></label>
         <label class="f" for="f-forma">¿Cómo produce?
@@ -243,7 +294,8 @@ footer a{color:#f9a8d4} footer b{color:#fff}
         <label class="f" for="f-wt">Trabajadores fijos en total <input type="number" id="f-wt" value="3" min="0" step="1"></label>
         <label class="f" for="f-w2">De ellos, ¿cuántos ganan entre 2 y 3 salarios mínimos? <input type="number" id="f-w2" value="1" min="0" step="1"></label>
         <label class="f" for="f-w3">¿Y cuántos más de 3 salarios mínimos? <input type="number" id="f-w3" value="0" min="0" step="1"></label>
-        <label class="f" for="f-efect">¿Está en el Sisbén como pobre o vulnerable? (devolución EfectIVA)
+        <p class="note up" id="f-wwarn" hidden></p>
+        <label class="f" for="f-efect">¿Está en el Sisbén como pobre o vulnerable? (devolución EfectIVA; el porcentaje lo fija el DNP según su tramo)
           <select id="f-efect"><option value="0">No</option><option value="0.3">Sí, me devolverían 30 %</option><option value="0.4">Sí, 40 %</option><option value="0.5">Sí, 50 %</option><option value="1">Sí, 100 %</option></select></label>
         <div style="display:flex;gap:8px;flex-wrap:wrap"><button class="btn" id="f-ref">Volver a la referencia de la zona</button><button class="btn" id="f-zero">Poner todo en cero</button></div>
         <p class="note" style="margin-top:12px" id="f-src"></p>
@@ -278,10 +330,10 @@ footer a{color:#f9a8d4} footer b{color:#fff}
         <h3>Datos del distrito</h3>
         <label class="f" for="d-area">Área servida (ha) <input type="number" id="d-area" value="25000" min="0" step="100"></label>
         <label class="f" for="d-tar">Tarifa promedio por hectárea al año ($) <input type="number" id="d-tar" value="166000" min="0" step="1000"></label>
-        <label class="f" for="d-comp">Compras con IVA al año: mantenimiento, repuestos, obra, equipos ($) <input type="number" id="d-comp" value="900000000" min="0" step="10000000"></label>
+        <label class="f" for="d-comp">Compras gravadas al año, valor antes de IVA: mantenimiento, repuestos, obra, equipos ($) <input type="number" id="d-comp" value="900000000" min="0" step="10000000"></label>
         <label class="f" for="d-cart">Cartera que no se recauda: <span class="v" id="d-cart-v">20 %</span><input type="range" id="d-cart" min="0" max="50" value="20"></label>
         <label class="f" for="d-pass">Parte del IVA recuperado que el distrito baja de la tarifa: <span class="v" id="d-pass-v">100 %</span><input type="range" id="d-pass" min="0" max="100" value="100"></label>
-        <p class="note">Ejemplo: Usocoello, en Tolima (≈25.000 ha, 2.200 usuarios), reportó un recaudo de $4.150 millones en un año, ≈$166.000 por hectárea. Cambie los datos por los de su distrito. Las compras con IVA y la cartera son supuestos.</p>
+        <p class="note">Ejemplo: Usocoello, en Tolima (≈25.000 ha, 2.200 usuarios), reportó un recaudo de $4.150 millones en un año, ≈$166.000 por hectárea. Cambie los datos por los de su distrito. Las compras gravadas (valor antes de IVA) y la cartera son supuestos.</p>
       </div>
       <div class="grid" style="align-content:start">
         <div class="kpis" id="d-kpis"></div>
@@ -321,22 +373,34 @@ footer a{color:#f9a8d4} footer b{color:#fff}
       <div class="card t-p">
         <h3>Datos del molino</h3>
         <label class="f" for="m-ing">Ingresos anuales ($) <input type="number" id="m-ing" value="1600000000000" min="0" step="10000000000"></label>
-        <label class="f" for="m-ton">Toneladas de paddy compradas al año <input type="number" id="m-ton" value="637352" min="1" step="1000"></label>
-        <label class="f" for="m-comp">Compras con IVA (empaques, repuestos, mantenimiento, servicios), % de ingresos: <span class="v" id="m-comp-v">7 %</span><input type="range" id="m-comp" min="2" max="15" step="0.5" value="7"></label>
-        <label class="f" for="m-marg">Utilidad antes de impuestos, % de ingresos: <span class="v" id="m-marg-v">6 %</span><input type="range" id="m-marg" min="1" max="15" step="0.5" value="6"></label>
-        <label class="f" for="m-ruge">Parte de la utilidad que viene de una planta nueva en RUGE: <span class="v" id="m-ruge-v">0 %</span><input type="range" id="m-ruge" min="0" max="100" step="5" value="0"></label>
+        <label class="f" for="m-ton">Toneladas de paddy compradas al año (paddy, no arroz blanco) <input type="number" id="m-ton" value="637352" min="1" step="1000"></label>
+        <label class="f" for="m-comp">Compras gravadas, valor antes de IVA (empaques, repuestos, mantenimiento, servicios), % de ingresos: <span class="v" id="m-comp-v">7 %</span><input type="range" id="m-comp" min="2" max="15" step="0.5" value="7"></label>
+        <label class="f" for="m-esc">Escenario del arroz blanco (el proyecto lo pone en las dos listas)
+          <select id="m-esc"><option value="exento">Exento, como dice el art. 46: el molino recupera el IVA de sus compras</option><option value="excluido">Excluido, como dice el art. 42: no recupera IVA</option></select></label>
+        <label class="f" for="m-ya">De ese IVA de compras, ¿qué parte ya recupera hoy? (por ejemplo, por subproductos gravados): <span class="v" id="m-ya-v">0 %</span><input type="range" id="m-ya" min="0" max="100" step="5" value="0"></label>
+        <label class="f" for="m-marg">Renta líquida gravable, % de ingresos: <span class="v" id="m-marg-v">6 %</span><input type="range" id="m-marg" min="1" max="15" step="0.5" value="6"></label>
+        <label class="f" for="m-ruge-y">Año de «inicio de ejecución» del proyecto RUGE, es decir, cuando se inscribe su certificado de adhesión (art. 69, nuevos arts. 918 y 919 ET), si existe
+          <select id="m-ruge-y"><option value="2027">2027 (tarifa RUGE 20 %)</option><option value="2028">2028 (tarifa RUGE 20 %)</option><option value="2029">2029 o después (tarifa RUGE 26 %)</option></select></label>
+        <label class="f" for="m-ruge">Parte de la renta que viene de esa planta (solo si cumple la inversión mínima de 2.580.000 UVT y el resto de requisitos): <span class="v" id="m-ruge-v">0 %</span><input type="range" id="m-ruge" min="0" max="100" step="5" value="0"></label>
         <label class="f" for="m-w2">Trabajadores que ganan entre 2 y 3 SMLMV <input type="number" id="m-w2" value="300" min="0" step="10"></label>
         <label class="f" for="m-w3">Trabajadores que ganan más de 3 SMLMV <input type="number" id="m-w3" value="150" min="0" step="10"></label>
         <label class="f" for="m-gal">Combustible para secado y transporte (galones de ACPM equivalentes por tonelada) <input type="number" id="m-gal" value="2" min="0" step="0.5"></label>
-        <p class="note">Ejemplo con el tamaño de la Organización Roa Florhuila en 2024: ingresos de $1,6 billones y 637.352 toneladas. Las compras con IVA, el margen, la nómina y el combustible son supuestos, no cifras de la empresa. Diana, Roa Florhuila y Sonora compraron juntas el 51,8 % del arroz en 2024.</p>
+        <p class="note">Ejemplo con el tamaño de la Organización Roa Florhuila en 2024: ingresos de $1,6 billones y 637.352 toneladas. Las compras gravadas, el margen, la nómina y el combustible son supuestos, no cifras de la empresa. Supone que hoy el molino no recupera nada del IVA de sus compras; si ya recupera una parte (por ejemplo, por subproductos gravados), su ahorro real es menor. Diana, Roa Florhuila y Sonora compraron juntas el 51,8 % del arroz en 2024.</p>
       </div>
       <div class="grid" style="align-content:start">
         <div class="kpis" id="m-kpis"></div>
         <div class="card t-t"><h3>Qué cambia para el molino, artículo por artículo</h3><div class="tw"><table id="m-table"></table></div></div>
+        <div class="card t-p"><h3>Lo que el molino ya tiene hoy (no se suma al ahorro)</h3>
+          <ul>
+            <li>Su materia prima, el paddy, no paga IVA.</li>
+            <li>Ya descuenta el IVA de sus compras ligadas a productos gravados, como subproductos para alimento animal. El simulador solo cuenta como ahorro el IVA que hoy no recupera.</li>
+            <li>Deduce sus costos y gastos y deprecia su maquinaria con las reglas ordinarias de renta. Lo único nuevo es la tarifa más baja y, si califica, el RUGE.</li>
+          </ul></div>
         <div class="card t-f"><h3>Lo que el proyecto no dice</h3>
           <ul>
             <li>No obliga a pasar al precio del paddy el IVA que el molino recupera ni la rebaja de renta. El precio sigue amarrado a la libertad regulada (Res. 241 de 2025), que el proyecto no toca.</li>
             <li>No crea ninguna forma para que el productor recupere el IVA de sus insumos. Bastaría con pasar el paddy (10.06.10.90) a la lista de exentos del art. 46.</li>
+            <li>El ahorro de IVA del molino depende de que el arroz blanco quede como exento (art. 46). Hoy el proyecto también lo deja como excluido (art. 42); si el Congreso corrige eso dejándolo solo excluido, el molino no recuperaría el IVA, pero sí conservaría la rebaja de renta.</li>
             <li>El RUGE pide una inversión nueva de 2.580.000 UVT (≈$135.000 millones) en agroindustria. Ningún arrocero llega a ese monto; un molino grande, sí.</li>
           </ul>
         </div>
@@ -353,11 +417,27 @@ footer a{color:#f9a8d4} footer b{color:#fff}
         <li><b>El Gobierno dice:</b> el arroz no pagará IVA. Es verdad para el que lo compra en la tienda.</li>
         <li><b>Lo que no dice:</b> desde 2028 el abono, los agroquímicos, la maquinaria, el seguro y el agua del distrito pagan 19 % (arts. 42, 45 y 106).</li>
         <li><b>El arrocero no lo puede recuperar</b> ni cobrárselo a nadie: tres molinos compran más de la mitad de la cosecha.</li>
-        <li><b>El molino sí lo recupera</b> (art. 46), paga menos renta (art. 57) y, si hace una planta grande, paga 20 % de renta durante 16 años (art. 69).</li>
+        <li><b>El molino paga menos renta</b> (art. 57), puede recuperar el IVA si el arroz blanco queda exento (art. 46) y, si hace una planta grande, paga 20 % de renta durante 16 años (art. 69).</li>
         <li><b>Y nada obliga</b> a que ese ahorro llegue al precio del paddy.</li>
       </ul>
       <div class="quote">«Arroz sin IVA en el supermercado, arrocero con IVA en la finca.»</div>
       <span class="arts">Arts. 42, 45, 46, 57, 69 (arts. 918–921 del Estatuto) y 106 num. 4 del proyecto</span>
+    </div>
+    <div class="card t-f" id="dangond" style="margin-bottom:16px">
+      <h3>El doble discurso del Gobierno con el arroz</h3>
+      <p class="note" style="margin-bottom:10px">Declaraciones públicas del ministro Indalecio Dangond comparadas con el proyecto que radicó el Ministerio de Hacienda del mismo gobierno.</p>
+      <div class="tw"><table>
+        <thead><tr><th>Cuándo y dónde</th><th>Lo que dijo el ministro</th><th>Lo que hace la reforma</th></tr></thead>
+        <tbody>
+          <tr><td>1 sep. 2026 · Huila, anuncio de una planta de fertilizantes (MinAgricultura)</td><td>«Vamos a trabajar para que producir alimentos en Colombia sea más barato y rentable.»</td><td>Desde 2028 el abono, los agroquímicos, la maquinaria y los servicios del campo pagan 19 % de IVA. Según la simulación, producir arroz costaría entre <span id="dg-rango">$0,8 y $1,2</span> millones más por hectárea en cada cosecha. <span class="artc">Arts. 42 y 45</span></td></tr>
+          <tr><td>1 sep. 2026 · mismo anuncio</td><td>«No podemos seguir dependiendo exclusivamente de las importaciones de fertilizantes.»</td><td>Mientras la planta nacional no exista, el fertilizante importado pasa a pagar 19 % de IVA. <span class="artc">Art. 42</span></td></tr>
+          <tr><td>Antes de posesionarse · perfil público</td><td>Defendió eliminar aranceles a insumos, maquinaria y materias primas para bajar costos.</td><td>A esos mismos insumos y a la maquinaria les agrega 19 % de IVA. <span class="artc">Arts. 42 y 106</span></td></tr>
+          <tr><td>8 sep. 2026 · debate del Presupuesto en el Congreso</td><td>«En el 2028 vamos a comenzar a ejecutar los grandes proyectos de inversión.» Habló de tecnificar los distritos de riego.</td><td>En 2028 los distritos empiezan a cobrar IVA sobre el agua y los equipos de riego pagan 19 %. Y desde 2027 Hacienda se lleva los saldos de los fondos especiales. <span class="artc">Arts. 3, 42 y 45</span></td></tr>
+          <tr><td>Octubre 2026 · entrevista en La FM, sobre el arroz</td><td>«Los costos subieron y el rendimiento por hectárea bajó.»</td><td>Señala que el arroz es caro de producir, mientras su gobierno propone encarecerlo más con IVA. <span class="artc">Arts. 42, 45 y 54</span></td></tr>
+          <tr><td>6 nov. 2026 · Cumbre Cafetera de Asoexport</td><td>Anunció para los cafeteros un subsidio de hasta 60 % en pólizas colectivas contra riesgos climáticos.</td><td>El seguro agropecuario, de café, arroz o cualquier cultivo, pasa de 5 % a 19 % de IVA: parte de cualquier subsidio al seguro se iría en impuesto. <span class="artc">Art. 106</span></td></tr>
+        </tbody>
+      </table></div>
+      <p class="note" style="margin-top:10px">El propio Ministerio de Hacienda calcula en la exposición de motivos que quitar los beneficios de IVA subiría la inflación hasta 1,3 puntos en 2028. No encontramos declaraciones del ministro Dangond sobre el IVA a los insumos agropecuarios incluido en el proyecto.</p>
     </div>
     <div class="grid g2">
       <div class="card t-f">
@@ -383,7 +463,7 @@ footer a{color:#f9a8d4} footer b{color:#fff}
       <div class="grid" style="align-content:start">
         <div class="card t-p"><h3>Calendario</h3>
           <div class="tl">
-            <div class="y"><div class="yr">2027</div><div>Renta de sociedades baja a 33 % (art. 57). Se recorta la exoneración de SENA, ICBF y salud: completa solo hasta 2 salarios mínimos, salvo personas naturales con 2 a 5 trabajadores (art. 20). Tramo nuevo de 9 % en la renta de personas (art. 48). El impuesto al carbono del ACPM casi se duplica (art. 54). Patrimonio con umbral más alto (arts. 66–68). Hacienda puede aplazar transferencias y se lleva los saldos de los fondos especiales (arts. 2 y 3). Facultades para reestructurar entidades como la ADR (art. 7). Abre el RUGE (art. 69).</div></div>
+            <div class="y"><div class="yr">2027</div><div>Renta de sociedades baja a 33 % (art. 57). Se recorta la exoneración de SENA, ICBF y salud: completa solo hasta 2 salarios mínimos, salvo personas naturales con 2 a 5 trabajadores, que siguen exoneradas; la persona natural con un solo trabajador, que hoy paga completo, quedaría exonerada por tramos (art. 20). Tramo nuevo de 9 % en la renta de personas (art. 48). El impuesto al carbono del ACPM casi se duplica (art. 54). Patrimonio con umbral más alto (arts. 66–68). Hacienda puede aplazar transferencias y se lleva los saldos de los fondos especiales (arts. 2 y 3). Facultades para reestructurar entidades como la ADR (art. 7). Abre el RUGE (art. 69).</div></div>
             <div class="y"><div class="yr">2028</div><div>Entra el nuevo IVA: insumos y servicios del campo al 19 % (arts. 42 y 45), desaparece el 5 % (art. 106), arroz blanco exento (art. 46). Arranca EfectIVA (art. 38). Renta de sociedades en 31 % (art. 57).</div></div>
             <div class="y"><div class="yr">2029</div><div>El impuesto al carbono llega a su tarifa plena: 0,016 UVT por galón de ACPM, unas 3,5 veces el valor de 2026 (art. 54).</div></div>
           </div></div>
@@ -393,6 +473,12 @@ footer a{color:#f9a8d4} footer b{color:#fff}
             <li>El paddy y la semilla de arroz solo quedan excluidos por una frase entre paréntesis del art. 46; la lista de excluidos del art. 42 no los nombra.</li>
             <li>Las materias primas de fertilizantes y plaguicidas siguen excluidas (art. 424-1 no se toca), pero el producto final queda gravado.</li>
             <li>No hay transición para lo sembrado en 2027 y vendido en 2028.</li>
+          </ul></div>
+        <div class="card t-p"><h3>Lo que también trae el proyecto</h3>
+          <ul>
+            <li><b>Multas más duras por no facturar:</b> 5 % de los ingresos del mes anterior, 7 % si se repite (arts. 90 a 93). Quien esté obligado a facturar debe cuidarse.</li>
+            <li><b>Impuesto al patrimonio temporal:</b> solo de 2027 a 2030, desde 95.500 UVT (≈$5.000 millones) (arts. 66 a 68).</li>
+            <li><b>Bolsa Mercantil:</b> 5 puntos más de renta hasta 2030 para las bolsas de productos agropecuarios con renta gravable de 120.000 UVT o más (art. 57).</li>
           </ul></div>
         <div class="card t-g"><h3>Qué pedir en el trámite</h3>
           <ul>
@@ -409,14 +495,15 @@ footer a{color:#f9a8d4} footer b{color:#fff}
 <footer>
   <div class="inner">
     <p><b>Herramienta desarrollada por Cristian López Ortiz, asesor de la UTL de la Senadora Laura Ahumada.</b> Instrumento de análisis: antes de usar una cifra en una intervención pública, confírmela en la fuente.</p>
-    <p style="margin-top:8px"><b>Fuentes y supuestos.</b> Articulado del proyecto de Ley de Rescate Económico (MinHacienda, 29-10-2026): arts. 2, 3, 7, 20, 21, 38, 42, 44, 45, 46, 48, 49, 54, 57, 66–69 y 106. Costos por hectárea de arroz riego por región, 2.º semestre 2024 (<a href="https://upra.gov.co/es-co/Evas_Documentos/01_FicCostArroz_20250226.pdf">UPRA</a>); el secano de los Llanos usa la estructura del río Meta con el rendimiento de secano de la ENAM del 1.er semestre de 2026, 4,02 t/ha (<a href="https://www.agronegocios.co/mercados/produccion-de-arroz-mecanizado-cayo-12-3-en-el-primer-semestre-de-2026-4456062">DANE-Fedearroz vía Agronegocios</a>). Exclusión vigente de servicios agropecuarios: art. 476 num. 24 (<a href="https://normograma.dian.gov.co/dian/compilacion/docs/oficio_dian_906514_2020.htm">DIAN</a>). Impuesto al carbono vigente del ACPM: $237,34 por galón (<a href="https://gestornormativo.creg.gov.co/gestor/entorno/docs/circular_creg_0339_2026.htm">CREG, Circular 339 de 2026</a>). Usocoello (<a href="https://www.eltiempo.com/colombia/otras-ciudades/en-la-crisis-por-los-precios-bajos-del-arroz-cultivadores-del-tolima-piden-un-ajuste-en-la-formula-que-fija-el-cobro-de-la-tarifa-hidrica-tua-3474835">El Tiempo</a>). Paddy verde en Ibagué, julio 2026: $1.110/kg (<a href="https://www.agronegocios.co/precios/arroz-excelso/andina/tolima/ibague">Agronegocios</a>). Producción nacional 2024: 3,71 millones de toneladas (<a href="https://www.larepublica.co/economia/cada-vez-se-siembra-mas-arroz-pero-los-precios-por-tonelada-disminuyen-553-000-4181170">Fedearroz vía La República</a>). Roa Florhuila y participación de los tres mayores molinos (<a href="https://www.larepublica.co/empresas/estos-son-los-compradores-de-la-produccion-de-3-5-millones-de-toneladas-de-arroz-4181082">La República</a>). Pesos de 2026 (UVT $52.374, SMLMV $1.750.905). La tarifa del distrito, los galones de ACPM, el arriendo y los datos del molino son supuestos editables.</p>
+    <p style="margin-top:8px"><b>Alcance.</b> Esta herramienta analiza los posibles efectos económicos y tributarios del Proyecto de Ley de Rescate Económico radicado por el Gobierno nacional el 29 de octubre de 2026, usando solo las disposiciones del texto radicado. Los resultados son simulaciones construidas con estructuras de costos, parámetros tributarios y supuestos que se identifican en cada caso: no son una predicción de los efectos definitivos ni una estimación oficial, y no incorporan cambios que se hagan durante el trámite legislativo. El escenario calculado supone que el IVA nuevo se traslada completo al precio de insumos y servicios.</p>
+    <p style="margin-top:8px"><b>Fuentes y supuestos.</b> Articulado del proyecto de Ley de Rescate Económico (MinHacienda, 29-10-2026): arts. 2, 3, 7, 20, 21, 38, 42, 44, 45, 46, 48, 49, 54, 57, 66–69 y 106. Costos por hectárea de arroz riego por región, 2.º semestre 2024 (<a href="https://upra.gov.co/es-co/Evas_Documentos/01_FicCostArroz_20250226.pdf">UPRA</a>); el secano de los Llanos usa la estructura del río Meta con el rendimiento de secano de la ENAM del 1.er semestre de 2026, 4,02 t/ha (<a href="https://www.agronegocios.co/mercados/produccion-de-arroz-mecanizado-cayo-12-3-en-el-primer-semestre-de-2026-4456062">DANE-Fedearroz vía Agronegocios</a>). Exclusión vigente de servicios agropecuarios: art. 476 num. 24 (<a href="https://normograma.dian.gov.co/dian/compilacion/docs/oficio_dian_906514_2020.htm">DIAN</a>). Impuesto al carbono vigente del ACPM: $237,34 por galón (<a href="https://gestornormativo.creg.gov.co/gestor/entorno/docs/circular_creg_0339_2026.htm">CREG, Circular 339 de 2026</a>). Usocoello (<a href="https://www.eltiempo.com/colombia/otras-ciudades/en-la-crisis-por-los-precios-bajos-del-arroz-cultivadores-del-tolima-piden-un-ajuste-en-la-formula-que-fija-el-cobro-de-la-tarifa-hidrica-tua-3474835">El Tiempo</a>). Paddy verde en Ibagué, julio 2026: $1.110/kg (<a href="https://www.agronegocios.co/precios/arroz-excelso/andina/tolima/ibague">Agronegocios</a>). Producción nacional 2024: 3.501.847 toneladas de arroz paddy verde mecanizado (<a href="https://www.dane.gov.co/files/operaciones/ENAM/bol-ENAM-IIsem24.pdf">DANE y Fedearroz-FNA, Encuesta Nacional de Arroz Mecanizado, segundo semestre 2024, tabla 10</a>). Las cifras nacionales son dos escenarios extremos (toda la producción con los costos de la zona más barata o de la más cara), no un promedio ponderado. Las de los tres molinos son extrapolaciones del molino modelo, con margen fiscal y compras supuestos, no mediciones ni declaraciones tributarias reales; además, el molino modelo no incluye el IVA de los servicios de secado, almacenamiento y trilla que contrate si el arroz blanco queda excluido. Roa Florhuila y participación de los tres mayores molinos (<a href="https://www.larepublica.co/empresas/estos-son-los-compradores-de-la-produccion-de-3-5-millones-de-toneladas-de-arroz-4181082">La República</a>). Declaraciones del ministro Dangond: <a href="http://www.minagricultura.gov.co/el-ministerio/sala-de-p/noticias/huila-da-primer-paso-para-producir-fertilizantes-en-colombia-y-bajar-los-costos-del-campo">MinAgricultura, 1-9-2026</a>; <a href="https://www.elnuevosiglo.com.co/politica/gobierno-insiste-en-sector-agricola-esta-en-problemas">El Nuevo Siglo, 8-9-2026</a>; <a href="https://www.agronegocios.co/agricultura/minagricultura-aclara-recomendacion-de-no-sembrar-arroz-y-anuncia-revision-de-recursos-4496879">Agronegocios, 5-10-2026</a>; <a href="https://es-us.noticias.yahoo.com/ministro-agricultura-vender%C3%A1-bodegas-inmuebles-154618626.html">El Colombiano, 6-11-2026</a>; <a href="https://nacionhuilense.com/quien-es-indalecio-dangond-el-nuevo-ministro-de-agricultura/">Nación Huilense</a>. Pesos de 2026 (UVT $52.374, SMLMV $1.750.905). Todas las cifras de 2027 en adelante están en pesos de 2026: se usan la UVT y el salario mínimo de 2026 para todos los años, sin proyectar inflación. La tarifa del distrito, los galones de ACPM, el arriendo y los datos del molino son supuestos editables.</p>
   </div>
 </footer>
 
 <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/4.4.1/chart.umd.min.js"></script>
 <script>
 const UVT=52374, SMLMV=1750905, CARGA=0.125, YEARS=[2026,2027,2028,2029];
-const NAT_T=3710000, TOP3=0.518;
+const NAT_T=3501847, TOP3=0.518;
 const CARB_2026=237.34; // $/galón ACPM, CREG Circular 339 de 2026
 const CARB={2026:CARB_2026/UVT,2027:0.009,2028:0.013,2029:0.016};
 const fmt=n=>'$'+Math.round(n).toLocaleString('es-CO');
@@ -442,15 +529,15 @@ const FROWS=[
  {k:'plag',n:'Herbicidas, insecticidas, fungicidas y reguladores',hoy:0,nuevo:.19,art:'Art. 42',g:'plag'},
  {k:'coad',n:'Coadyuvantes',hoy:.19,nuevo:.19,art:'—'},
  {k:'sem',n:'Semilla de arroz',hoy:0,nuevo:0,art:'Art. 46'},
- {k:'prep',n:'Preparación del suelo (servicio de maquinaria)',hoy:0,nuevo:.19,art:'Art. 45',g:'maq'},
- {k:'siem',n:'Siembra (servicio contratado)',hoy:0,nuevo:.19,art:'Art. 45',g:'maq'},
- {k:'fum',n:'Fumigación y aplicaciones (servicio contratado)',hoy:0,nuevo:.19,art:'Art. 45',g:'maq'},
- {k:'cos',n:'Cosecha con combinada',hoy:0,nuevo:.19,art:'Art. 45',g:'maq'},
- {k:'asis',n:'Asistencia técnica',hoy:0,nuevo:.19,art:'Art. 45',g:'maq'},
+ {k:'prep',n:'Preparación del suelo (servicio de maquinaria)',hoy:0,nuevo:.19,art:'Art. 45',g:'serv'},
+ {k:'siem',n:'Siembra (servicio contratado)',hoy:0,nuevo:.19,art:'Art. 45',g:'serv'},
+ {k:'fum',n:'Fumigación y aplicaciones (servicio contratado)',hoy:0,nuevo:.19,art:'Art. 45',g:'serv'},
+ {k:'cos',n:'Cosecha con combinada',hoy:0,nuevo:.19,art:'Art. 45',g:'serv'},
+ {k:'asis',n:'Asistencia técnica',hoy:0,nuevo:.19,art:'Art. 45',g:'serv'},
  {k:'agua',n:'Tarifa del distrito de riego',hoy:0,nuevo:.19,art:'Art. 45',g:'agua',hint:'Supuesto: promedio de Usocoello por cosecha'},
- {k:'seg',n:'Seguro agropecuario',hoy:.05,nuevo:.19,art:'Art. 106',g:'maq'},
- {k:'sec',n:'Secamiento o trilla contratados',hoy:0,nuevo:.19,art:'Art. 45',g:'maq'},
- {k:'equ',n:'Compra de tractor, cosechadora o equipo de riego (lo que le toca a cada hectárea)',hoy:0,nuevo:.19,art:'Art. 42',g:'maq'},
+ {k:'seg',n:'Seguro agropecuario',hoy:.05,nuevo:.19,art:'Art. 106',g:'seg'},
+ {k:'sec',n:'Secamiento o trilla contratados',hoy:0,nuevo:.19,art:'Art. 45',g:'serv'},
+ {k:'equ',n:'Compra de tractor, cosechadora o equipo de riego (lo que le toca a cada hectárea)',hoy:0,nuevo:.19,art:'Art. 42',g:'equ'},
  {k:'arr',n:'Arriendo de la tierra',hoy:null,nuevo:null,art:'Sin cambio'},
  {k:'jor',n:'Labores y jornales',hoy:null,nuevo:null,art:'—'},
  {k:'tra',n:'Transporte y análisis de suelos',hoy:0,nuevo:0,art:'—'},
@@ -464,22 +551,28 @@ function buildFincaTable(){
   `<tr><td>ACPM: impuesto al carbono<span class="hint">Hoy ${fmt(CARB_2026)} por galón</span></td><td class="num" id="f-galtxt"></td><td><span class="pill p-eq">${fmt(CARB_2026)}/gal</span></td><td><span class="pill p-19">${fmt(CARB[2029]*UVT)}/gal en 2029</span></td><td class="artc">Art. 54</td><td class="num" id="fy27-carb"></td><td class="num" id="fy28-carb"></td><td class="num" id="fy29-carb"></td></tr>
    <tr class="tot"><td>Total por hectárea en cada cosecha</td><td class="num" id="f-tot26"></td><td></td><td></td><td></td><td class="num" id="f-tot27"></td><td class="num" id="f-tot28"></td><td class="num" id="f-tot29"></td></tr></tbody>`;
 }
+function presetVal(Z,k){const v=Z.v;if(k==='jor')return v.jor+v.siem+v.fum;if(k==='siem'||k==='fum'||k==='asis')return 0;if(k==='otr')return v.otr+v.asis;if(k==='agua')return Z.agua;if(k==='arr')return 1200000;return v[k]===undefined?0:v[k]}
 function loadZona(z){
-  const Z=ZONAS[z]; FROWS.forEach(r=>{let v=Z.v[r.k];if(r.k==='agua')v=Z.agua;if(r.k==='arr')v=1200000;if(v===undefined)v=0;el('fr-'+r.k).value=Math.round(v)});
-  el('f-yld').value=Math.round(Z.y*8); el('f-cic').value=Z.cic;
-  el('f-src').textContent=`Valores cargados: ${Z.n}. Costos UPRA del 2.º semestre de 2024, rendimiento de ${Z.y.toLocaleString('es-CO')} t/ha, más un arriendo de $1.200.000 por hectárea${Z.agua?' y una tarifa de agua de $83.000 por cosecha':''}. Cámbielos por los suyos.`;
+  const Z=ZONAS[z]; FROWS.forEach(r=>{let v=presetVal(Z,r.k);el('fr-'+r.k).value=Math.round(v)});
+  el('f-yld').value=Math.round(Z.y*8*10)/10; el('f-cic').value=Z.cic;
+  el('f-src').textContent=`Valores cargados: ${Z.n}. Costos UPRA del 2.º semestre de 2024, rendimiento de ${Z.y.toLocaleString('es-CO')} t/ha, más un arriendo de $1.200.000 por hectárea${Z.agua?' y una tarifa de agua de $83.000 por cosecha (supuesto)':''}. Para no sobrestimar, la referencia solo trata como servicio gravado la preparación del suelo y la cosecha; la siembra y las aplicaciones de la UPRA quedan como mano de obra, y la asistencia técnica dentro de «otros». Si usted contrata esos servicios, escríbalos en su casilla.`;
 }
 const ROWVAL={};
 function incrementOf(r,v,y){return (y>=2028&&r.hoy!==null&&r.nuevo!==r.hoy)?v/(1+r.hoy)*(1+r.nuevo)-v:0}
 function nominaExtra(){
-  const forma=el('f-forma').value, wt=num('f-wt');
-  if(forma==='nat'&&wt<=5) return 0; // art. 20: persona natural con 2 a 5 trabajadores sigue exonerada; con 1 hoy no lo está
+  const forma=el('f-forma').value, w=num('f-wt'), ws=num('f-w2')+num('f-w3'), wt=Math.max(w,ws);
+  const wn=el('f-wwarn'); if(wn){wn.hidden=!(ws>w);wn.textContent=ws>w?`Revise: los trabajadores que ganan más de 2 salarios mínimos (${ws}) suman más que el total (${w}). Para calcular se toma un total de ${ws}.`:'';}
+  // Art. 20 (nuevo 114-1 ET): persona natural con 2 a 5 trabajadores sigue exonerada (sin cambio).
+  // Con 1 trabajador hoy paga todo (el 114-1 vigente exige 2 o más); con el proyecto queda exonerada por tramos: alivio.
+  if(forma==='nat'&&wt===1){const w1=Math.max(0,1-num('f-w2')-num('f-w3'));return -(w1*1*SMLMV*0.135*12+Math.min(1,num('f-w2'))*2.5*SMLMV*0.075*12);}
+  if(forma==='nat'&&wt<=5) return 0;
   return payroll(num('f-w2'),num('f-w3'));
 }
 function fincaCalc(){
-  const ha=num('f-ha'),cic=num('f-cic')||1,yld=num('f-yld')||1,price=num('f-price'),gal=num('f-gal');
+  const ha=num('f-ha'),cic=num('f-cic'),yld=num('f-yld'),price=num('f-price'),gal=num('f-gal');
+  if(!(ha>0&&cic>0&&yld>0)){const msg='<p class="note up" role="alert" style="grid-column:1/-1">Para calcular, escriba valores mayores que cero en hectáreas, cosechas al año y cargas por hectárea.</p>';el('f-kpis').innerHTML=msg;el('f-verdict').innerHTML='<span class="kick">Faltan datos</span><h2>Complete hectáreas, cosechas y cargas por hectárea</h2>';nominaExtra();return;}
   const pay=nominaExtra();
-  const per={},grp={fert:{},plag:{},maq:{},agua:{},comb:{},nom:{}};
+  const per={},grp={fert:{},plag:{},serv:{},equ:{},seg:{},agua:{},comb:{},nom:{}};
   YEARS.forEach(y=>{per[y]=0;Object.keys(grp).forEach(g=>grp[g][y]=0)});
   let ivaInc29=0;
   FROWS.forEach(r=>{
@@ -496,19 +589,20 @@ function fincaCalc(){
   el('f-tot26').textContent=fmt(per[2026]);
   [2027,2028,2029].forEach(y=>el('f-tot'+String(y).slice(2)).innerHTML=`${fmt(per[y])}<br><span class="up" style="font-size:12.5px">${sgn(per[y]-per[2026])}</span>`);
   const ef=+el('f-efect').value, refund=y=>y>=2028?Math.min(ivaInc29*ha*cic*ef,5.5*UVT*12):0;
-  const yr=y=>per[y]*ha*cic+(y>=2027?pay:0)-refund(y);
+  const yr=y=>per[y]*ha*cic+(y>=2027?pay:0);
   const cargas=yld*ha*cic;
   el('f-kpis').innerHTML=YEARS.map(y=>{const t=yr(y),d=t-yr(2026);return `<div class="kpi ${y===2026?'base':''}"><div class="l">${y===2029?'2029 en adelante':y===2026?'Hoy (2026)':y} · al año</div><div class="n">${fmtM(t)}</div>${y>2026?`<div class="d">${sgn(d)} frente a hoy</div>`:`<div class="l">${fmt(cargas?t/cargas:0)} por carga</div>`}</div>`}).join('');
   const d28=yr(2028)-yr(2026),d29=yr(2029)-yr(2026),dC=cargas?d29/cargas:0,ing=price*cargas;
-  const names={fert:'el abono',plag:'los agroquímicos',maq:'la maquinaria y los servicios',agua:'el agua del distrito',comb:'el ACPM',nom:'la nómina'};
+  const names={fert:'el abono',plag:'los agroquímicos',serv:'los servicios de maquinaria',equ:'la compra de equipos',seg:'el seguro',agua:'el agua del distrito',comb:'el ACPM',nom:'la nómina'};
   const top=Object.entries(grp).map(([g,o])=>[g,o[2029]]).filter(x=>x[1]>0).sort((a,b)=>b[1]-a[1]).slice(0,3).map(x=>names[x[0]]);
   const m0=ing-yr(2026),m1=ing-yr(2029), perHa=ha&&cic?d29/(ha*cic):0;
-  el('f-verdict').innerHTML=`<span class="kick">Lo que la reforma le cuesta a su cultivo</span>
+  window.LAST_FINCA={c26:per[2026],c27:per[2027],c28:per[2028],c29:per[2029],dHa:perHa,dC,d29,cargas,pay};
+  el('f-verdict').innerHTML=`<span class="kick">Lo que la reforma le costaría a su cultivo · simulación con sus datos</span>
     <h2>Desde 2028, producir el arroz de su finca le costaría <em>${fmtM(d28)} más al año</em>${d29>d28+1?`, y ${fmtM(d29)} desde 2029`:''}.</h2>
-    <ul><li><b>Por hectárea:</b> ${fmt(perHa)} más en cada cosecha. <b>Por carga:</b> ${fmt(dC)} más. Si le pagan ${fmt(price)} por carga${price===138750?' (precio promedio del paddy verde en Ibagué, Tolima, en julio de 2026)':''}, el impuesto nuevo se come el ${pct(price?dC/price*100:0)} de lo que recibe.</li>
+    <ul><li><b>Por hectárea:</b> ${fmt(perHa)} más en cada cosecha, si el IVA nuevo se traslada completo al precio de sus insumos y servicios. <b>Por carga:</b> ${fmt(dC)} más. Si le pagan ${fmt(price)} por carga${price===138750?' (precio promedio del paddy verde en Ibagué, Tolima, en julio de 2026)':''}, el impuesto nuevo equivale al ${pct(price?dC/price*100:0)} de lo que recibe.</li>
     <li><b>Lo que más sube:</b> ${top.length?top.join(', '):'nada con estos datos'}.</li>
-    <li><b>En 2027</b> ya pagaría ${fmtM(yr(2027)-yr(2026))} más por el ACPM${pay>0?' y la nómina':''}, antes de que llegue el IVA.</li>
-    ${ef>0?`<li><b>EfectIVA</b> le devolvería hasta ${fmtM(refund(2029))} al año, si compra con factura electrónica a su nombre y si ese tope no se lo consumen las compras de la casa (art. 38). Ya está descontado arriba.</li>`:''}
+    <li><b>En 2027</b>, antes de que llegue el IVA, ${pay<0?`el ACPM le sube ${fmtM(yr(2027)-yr(2026)-pay)} al año. Como persona natural con un solo trabajador, la nómina le baja ${fmtM(-pay)} (art. 20); ese alivio ya está descontado de las cifras.`:`ya pagaría ${fmtM(yr(2027)-yr(2026))} más por el ACPM${pay>0?' y la nómina':''}.`}</li>
+    ${ef>0?`<li><b>EfectIVA</b> (compensación potencial, no descontada de las cifras de arriba) podría devolverle hasta ${fmtM(refund(2029))} al año. Es una aproximación: supone que el DNP lo ubica en el tramo escogido, que compra con factura electrónica a su nombre, y usa el tope de 5,5 UVT al mes con la UVT de 2026, tope que también consumen las compras de la casa (art. 38).</li>`:''}
     <li><b>Cómo le queda el año:</b> vendiendo ${Math.round(cargas).toLocaleString('es-CO')} cargas a ${fmt(price)}, ${m0>=0?`hoy le quedan ${fmtM(m0)}`:`hoy pierde ${fmtM(-m0)}`}; con la reforma ${m1>=0?`le quedarían ${fmtM(m1)}`:`perdería ${fmtM(-m1)}`}.</li></ul>
     <span class="arts">Abono y agroquímicos: art. 42 · Maquinaria, técnico y agua: art. 45 · Seguro: art. 106 · ACPM: art. 54 · Nómina: art. 20 · EfectIVA: art. 38</span>`;
   const u=num('f-renta')/UVT,h=rentaHoy(u)*UVT,n=rentaNew(u)*UVT;
@@ -523,7 +617,7 @@ function rentaNew(u){const T=[[0,720,0,0],[720,1090,.09,0],[1090,1700,.19,33],[1
 /* ---- costo adicional por tonelada de cada zona de referencia (IVA + carbono, 2029) ---- */
 function zonaPerTon(z,gal=30){
   const Z=ZONAS[z]; let inc=0;
-  FROWS.forEach(r=>{let v=Z.v[r.k];if(r.k==='agua')v=Z.agua;if(r.k==='arr')v=1200000;if(v===undefined)v=0;inc+=incrementOf(r,v,2029)});
+  FROWS.forEach(r=>{inc+=incrementOf(r,presetVal(Z,r.k),2029)});
   return (inc+gal*carbDelta(2029))/Z.y;
 }
 function zonaPerHa(z,gal=30){return zonaPerTon(z,gal)*ZONAS[z].y}
@@ -533,48 +627,59 @@ function calcDistrito(){
   const area=num('d-area'),tar=num('d-tar'),comp=num('d-comp'),cart=num('d-cart')/100,pass=num('d-pass')/100;
   el('d-cart-v').textContent=Math.round(cart*100)+' %'; el('d-pass-v').textContent=Math.round(pass*100)+' %';
   const fact=area*tar,ivaF=fact*.19,ivaD=comp*.19,neto=ivaF-ivaD,noCob=ivaF*cart,reb=Math.min(ivaD*pass,ivaF),uHa=area?(ivaF-reb)/area:0;
-  el('d-kpis').innerHTML=`<div class="kpi"><div class="n">${fmtM(ivaF)}</div><div class="l">IVA que cobraría a los usuarios al año</div></div><div class="kpi ok"><div class="n">${fmtM(ivaD)}</div><div class="l">IVA de sus compras que podría descontar</div></div><div class="kpi neu"><div class="n">${fmtM(neto)}</div><div class="l">IVA neto para la DIAN al año</div></div><div class="kpi"><div class="n">${fmt(uHa)}</div><div class="l">más por hectárea al año para el usuario</div></div>`;
+  el('d-kpis').innerHTML=`<div class="kpi"><div class="n">${fmtM(ivaF)}</div><div class="l">IVA que cobraría a los usuarios al año</div></div><div class="kpi ok"><div class="n">${fmtM(ivaD)}</div><div class="l">IVA de sus compras que podría descontar, si todas cumplen los requisitos para descontarlo</div></div><div class="kpi neu"><div class="n">${fmtM(Math.abs(neto))}</div><div class="l">${neto>=0?"IVA neto para la DIAN al año":"saldo a favor del distrito al año (descuenta más de lo que cobra)"}</div></div><div class="kpi"><div class="n">${fmt(uHa)}</div><div class="l">más por hectárea al año para el usuario</div></div>`;
   el('d-table').innerHTML=`<thead><tr><th>Concepto</th><th class="num">Hoy</th><th class="num">Desde 2028</th><th>Artículo</th></tr></thead><tbody>
     <tr><td>Tarifas facturadas</td><td class="num">${fmt(fact)}</td><td class="num">${fmt(fact)}</td><td class="artc">—</td></tr>
     <tr><td>IVA cobrado a usuarios (19 %)</td><td class="num">—</td><td class="num up">+${fmt(ivaF)}</td><td class="artc">Art. 45</td></tr>
-    <tr><td>IVA pagado en compras</td><td class="num">${fmt(ivaD)} (no se recupera)</td><td class="num dn">${fmt(ivaD)} (descontable)</td><td class="artc">Art. 45</td></tr>
-    <tr><td>IVA neto a declarar (año)</td><td class="num">—</td><td class="num">${fmt(neto)}</td><td class="artc">Art. 45</td></tr>
-    <tr><td>IVA sobre la cartera que no se cobra (${Math.round(cart*100)} %), que sale de la caja del distrito</td><td class="num">—</td><td class="num up">${fmt(noCob)}</td><td class="artc">Art. 45</td></tr>
+    <tr><td>IVA pagado en compras</td><td class="num">${fmt(ivaD)} (no se recupera)</td><td class="num dn">${fmt(ivaD)} (descontable si cumple requisitos)</td><td class="artc">Art. 45</td></tr>
+    <tr><td>${neto>=0?"IVA neto a declarar (año)":"Saldo a favor del distrito (año)"}</td><td class="num">—</td><td class="num">${fmt(Math.abs(neto))}</td><td class="artc">Art. 45</td></tr>
+    <tr><td>IVA de la cartera que no se cobra (${Math.round(cart*100)} %): se causa al facturar (art. 429 del Estatuto), así que el distrito lo declara y lo adelanta de su caja aunque el usuario no pague. Es un riesgo de liquidez</td><td class="num">—</td><td class="num up">${fmt(noCob)}</td><td class="artc">Art. 45</td></tr>
     <tr><td>Rebaja de tarifa si devuelve el IVA recuperado (${Math.round(pass*100)} %)</td><td class="num">—</td><td class="num dn">−${fmt(reb)}</td><td class="artc">—</td></tr>
     <tr class="tot"><td>Costo neto adicional para los usuarios</td><td class="num">—</td><td class="num up">${fmt(ivaF-reb)}</td><td></td></tr></tbody>`;
   el('d-verdict').innerHTML=`<span class="kick">Lo que significa para los distritos y sus usuarios</span><h2>El agua del distrito <em>pagaría IVA por primera vez</em>.</h2>
     <ul><li><b>Para el usuario:</b> ${fmt(uHa)} más al año por cada hectárea en la factura del agua (art. 45).</li>
-    <li><b>Para el distrito:</b> tiene que cobrar el IVA, declararlo cada dos meses y pagarlo aunque el usuario no le pague. Por la cartera morosa saldrían ${fmtM(noCob)} al año de su propia caja.</li>
+    <li><b>Para el distrito:</b> tiene que facturar el IVA y declararlo cada dos meses. Como en los servicios el IVA se causa al facturar (art. 429 del Estatuto Tributario), lo debe declarar aunque el usuario no le haya pagado: con la cartera morosa tendría que adelantar unos ${fmtM(noCob)} al año de su propia caja.</li>
     <li><b>Menos plata para los canales:</b> el Gobierno se lleva cada diciembre los saldos de los fondos especiales (art. 3) y puede reorganizar la ADR, dueña de los distritos públicos (art. 7).</li></ul>`;
 }
 
 /* ---- molino ---- */
-function molParams(){return {ing:num('m-ing'),ton:num('m-ton')||1,comp:num('m-comp')/100,marg:num('m-marg')/100,ruge:num('m-ruge')/100,pay:payroll(num('m-w2'),num('m-w3')),gal:num('m-gal')}}
+function molParams(){const t=num('m-ton');return {esc:el('m-esc')?el('m-esc').value:'exento',ing:num('m-ing'),ton:t>0?t:0,tonOk:t>0,comp:num('m-comp')/100,ya:num('m-ya')/100,marg:num('m-marg')/100,ruge:num('m-ruge')/100,rugeY:+(el('m-ruge-y')?el('m-ruge-y').value:2028),pay:payroll(num('m-w2'),num('m-w3')),gal:num('m-gal')}}
+function molYear(p,y){ // valores anuales del molino frente a 2026
+  const U=p.ing*p.marg,rate={2026:.35,2027:.33,2028:.31,2029:.31};
+  const rRuge=p.rugeY<=2028?.20:.26;
+  const renta=y===2026?0:U*(.35-rate[y]);
+  const ruge=(y>=p.rugeY&&y>2026)?Math.max(0,U*p.ruge*(rate[y]-rRuge)):0;
+  const iva=(y>=2028&&p.esc==='exento')?p.ing*p.comp*.19*(1-p.ya):0;
+  return {renta,ruge,iva,nom:y>=2027?p.pay:0,comb:p.gal*carbDelta(y)*p.ton};
+}
 function molSeries(){
-  const p=molParams(),U=p.ing*p.marg,rate={2026:.35,2027:.33,2028:.31,2029:.31};
-  return {renta:YEARS.map(y=>y===2026?0:-(U*(.35-rate[y])+U*p.ruge*(rate[y]-.20))/p.ton),nom:YEARS.map(y=>y>=2027?p.pay/p.ton:0),comb:YEARS.map(y=>p.gal*carbDelta(y)),iva:YEARS.map(y=>y>=2028?-p.ing*p.comp*.19/p.ton:0)};
+  const p=molParams(); if(!p.tonOk) return {renta:[0,0,0,0],nom:[0,0,0,0],comb:[0,0,0,0],iva:[0,0,0,0]};
+  return {renta:YEARS.map(y=>{const m=molYear(p,y);return -(m.renta+m.ruge)/p.ton}),nom:YEARS.map(y=>molYear(p,y).nom/p.ton),comb:YEARS.map(y=>p.gal*carbDelta(y)),iva:YEARS.map(y=>-molYear(p,y).iva/p.ton)};
 }
 function sumAt(ser,i){return Object.values(ser).reduce((s,a)=>s+(a[i]||0),0)}
 function calcMolino(){
   const p=molParams();
-  el('m-comp-v').textContent=pct(p.comp*100); el('m-marg-v').textContent=pct(p.marg*100); el('m-ruge-v').textContent=Math.round(p.ruge*100)+' %';
-  const U=p.ing*p.marg,ivaRec=p.ing*p.comp*.19,rentaA=U*.04,rugeA=U*p.ruge*.11,s=molSeries(),molT=-sumAt(s,3);
+  el('m-comp-v').textContent=pct(p.comp*100); el('m-marg-v').textContent=pct(p.marg*100); el('m-ruge-v').textContent=Math.round(p.ruge*100)+' %'; el('m-ya-v').textContent=Math.round(p.ya*100)+' %';
+  const m29=molYear(p,2029),ivaRec=m29.iva,rentaA=m29.renta,rugeA=m29.ruge,s=molSeries(),molT=-sumAt(s,3),carbY=m29.comb;
+  const tonWarn=!p.tonOk?'<p class="note up" style="grid-column:1/-1">Escriba las toneladas de paddy que compra el molino. Con cero no se puede calcular por tonelada, así que las cifras por tonelada y nacionales quedan en blanco.</p>':'';
+  const escTxt=p.esc==='exento'?'escenario: arroz blanco exento (art. 46)':'escenario: arroz blanco excluido (art. 42)';
   const prodT=sumAt(window.FINCA_SER||{},3);
-  el('m-kpis').innerHTML=`<div class="kpi ok"><div class="n">${fmtM(ivaRec)}</div><div class="l">IVA de sus compras que deja de ser costo al año (art. 46)</div></div><div class="kpi ok"><div class="n">${fmtM(rentaA+rugeA)}</div><div class="l">menos impuesto de renta al año (arts. 57 y 919)</div></div><div class="kpi neu"><div class="n">${fmtM(p.pay)}</div><div class="l">más en nómina al año (art. 20)</div></div><div class="kpi ${molT>=0?'ok':''}"><div class="n">${fmtM(molT*p.ton)}</div><div class="l">ahorro neto al año, contando todo</div></div>`;
-  el('m-vs').innerHTML=`<div class="side prod"><div class="note" style="color:#fde7f3">Usted, por cada carga de paddy</div><div class="big">+${fmt(prodT*CARGA)}</div><p>IVA nuevo en abono, agroquímicos, maquinaria y agua, más ACPM${(window.FINCA_SER&&window.FINCA_SER.nom&&window.FINCA_SER.nom[3]>0)?' y nómina':''}. No lo puede descontar ni cobrar.</p></div><div class="side mol"><div class="note" style="color:#ccfbf1">El molino, por esa misma carga</div><div class="big">${molT>=0?'−':'+'}${fmt(Math.abs(molT)*CARGA)}</div><p>Le devuelven el IVA de sus compras y paga menos renta. Nada lo obliga a pagar mejor el paddy.</p></div>`;
+  el('m-kpis').innerHTML=`<div class="kpi ok"><div class="n">${fmtM(rentaA)}</div><div class="l">menos renta al año por la rebaja de 35 % a 31 % (art. 57). Sustentado en el proyecto</div></div><div class="kpi ok"><div class="n">${p.esc==='exento'?fmtM(ivaRec):'$0'}</div><div class="l">IVA de compras que recuperaría y que hoy no recupera (art. 46). Condicionado: depende de que el arroz blanco quede exento. ${p.ya===0?'<b>Supone que hoy no recupera nada: es la cifra máxima</b>':'Supone que hoy ya recupera el '+Math.round(p.ya*100)+' %'}</div></div><div class="kpi neu"><div class="n">${fmtM(p.pay+carbY)}</div><div class="l">costos nuevos al año: nómina (art. 20) y carbono (art. 54)</div></div><div class="kpi ${molT>=0?'ok':''}"><div class="n">${p.tonOk?(molT>=0?'−':'+')+fmtM(Math.abs(molT*p.ton)):'—'}</div><div class="l">${molT>=0?'ahorro':'sobrecosto'} neto al año desde 2029, ${escTxt}${rugeA>0?`, con ${fmtM(rugeA)} de RUGE si la planta califica`:''}</div></div>`+tonWarn;
+  el('m-vs').innerHTML=`<div class="side prod"><div class="note" style="color:#fde7f3">Usted, por cada carga de paddy</div><div class="big">+${fmt(prodT*CARGA)}</div><p>IVA nuevo en abono, agroquímicos, maquinaria y agua, más ACPM${(window.FINCA_SER&&window.FINCA_SER.nom&&window.FINCA_SER.nom[3]>0)?' y nómina':''}. No lo puede descontar ni cobrar.</p></div><div class="side mol"><div class="note" style="color:#ccfbf1">El molino, por esa misma carga</div><div class="big">${molT>=0?'−':'+'}${fmt(Math.abs(molT)*CARGA)}</div><p>${p.esc==='exento'?'Le devuelven el IVA de sus compras y paga menos renta.':'Paga menos renta.'} Nada lo obliga a pagar mejor el paddy.</p></div>`;
   el('m-table').innerHTML=`<thead><tr><th>Cambio</th><th>Efecto</th><th class="num">Al año</th><th>Artículo</th></tr></thead><tbody>
-    <tr><td>Arroz blanco: de excluido a exento</td><td class="dn">Recupera el IVA de empaques, repuestos y servicios</td><td class="num dn">−${fmt(ivaRec)}</td><td class="artc">Art. 46</td></tr>
-    <tr><td>Secamiento, almacenamiento y trilla al 19 %</td><td>Al molino no le cuesta: lo descuenta. Al productor que los contrata sí</td><td class="num">—</td><td class="artc">Arts. 45 y 46</td></tr>
+    <tr><td>Arroz blanco: de excluido a exento <b>(condicionado)</b></td><td class="dn">Si queda exento, recupera el IVA de empaques, repuestos y servicios. El art. 42 lo deja a la vez como excluido</td><td class="num dn">${ivaRec>0?"−"+fmt(ivaRec):"$0 en este escenario"}</td><td class="artc">Arts. 42 y 46</td></tr>
+    <tr><td>Secamiento, almacenamiento y trilla al 19 %</td><td>Si el arroz blanco queda exento, el molino puede descontarlo; si queda excluido, también le cuesta. Al productor que los contrata siempre le cuesta</td><td class="num">—</td><td class="artc">Arts. 45 y 46</td></tr>
     <tr><td>Paddy sigue excluido</td><td>Su materia prima no carga IVA, antes ni después</td><td class="num">—</td><td class="artc">Art. 46</td></tr>
-    <tr><td>Renta de 35 % a 31 %</td><td class="dn">Menos impuesto sobre la utilidad</td><td class="num dn">−${fmt(rentaA)}</td><td class="artc">Art. 57</td></tr>
-    <tr><td>Planta nueva en RUGE</td><td class="dn">Renta de 20 % por 16 años, depreciación al 50 % anual, sin impuesto al patrimonio, dividendos al 8 % para extranjeros</td><td class="num dn">${rugeA>0?'−'+fmt(rugeA):'—'}</td><td class="artc">Art. 69</td></tr>
+    <tr><td>Renta de 35 % a 31 % (33 % en 2027) <b>(sustentado)</b></td><td class="dn">Menos impuesto sobre la renta gravable</td><td class="num dn">−${fmt(rentaA)}</td><td class="artc">Art. 57</td></tr>
+    <tr><td>Planta nueva en RUGE <b>(si califica)</b></td><td class="dn">Solo para inversión nueva desde 2.580.000 UVT: renta de 20 % si la planta empieza en 2027 o 2028, o 26 % desde 2029, por 16 años; depreciación al 50 % anual, sin impuesto al patrimonio, dividendos al 8 % para extranjeros</td><td class="num dn">${rugeA>0?'−'+fmt(rugeA)+' desde '+p.rugeY:'—'}</td><td class="artc">Art. 69 (arts. 918–921 del Estatuto)</td></tr>
     <tr><td>Patrimonio de los dueños</td><td class="dn">El umbral sube de 72.000 a 95.500 UVT y la tarifa máxima baja a 1 %</td><td class="num">—</td><td class="artc">Arts. 66–68</td></tr>
     <tr><td>Parafiscales sobre 2 SMLMV</td><td class="up">Sube la nómina técnica y administrativa</td><td class="num up">+${fmt(p.pay)}</td><td class="artc">Art. 20</td></tr>
-    <tr><td>Impuesto al carbono (2029)</td><td class="up">Sube el combustible de secado y transporte</td><td class="num up">+${fmt(p.gal*carbDelta(2029)*p.ton)}</td><td class="artc">Art. 54</td></tr></tbody>`;
-  el('m-verdict').innerHTML=`<span class="kick">Usted frente al molino</span><h2>Al que siembra <em>le suben los costos</em>. Al que muele <em class="g">se los bajan</em>.</h2>
+    <tr><td>Impuesto al carbono (2029)</td><td class="up">Sube el combustible de secado y transporte</td><td class="num up">+${fmt(carbY)}</td><td class="artc">Art. 54</td></tr></tbody>`;
+  if(!p.tonOk){el('m-vs').innerHTML='';el('m-verdict').innerHTML=`<span class="kick">Usted frente al molino</span><h2>Escriba las toneladas de paddy que compra el molino</h2><p>Con cero toneladas no se puede comparar por carga. Usted, por cada carga, pagaría ${fmt(prodT*CARGA)} más.</p>`;return;}
+  el('m-verdict').innerHTML=`<span class="kick">Usted frente al molino</span><h2>${molT>=0?'Al que siembra <em>le suben los costos</em>. Al que muele <em class="g">se los bajan</em>.':'Al que siembra <em>le suben los costos</em>. Al molino, con estos supuestos, también, pero '+(Math.abs(molT)<prodT?'<em class="g">menos</em>.':'en igual o mayor medida.')}</h2>
     <ul><li><b>Usted, por cada carga de paddy:</b> paga ${fmt(prodT*CARGA)} más.</li>
-    <li><b>El molino, por esa misma carga:</b> ${molT>=0?'se ahorra':'paga'} ${fmt(Math.abs(molT)*CARGA)}.</li>
-    <li><b>Por qué:</b> el molino vende arroz blanco, que queda exento: le devuelven el IVA de lo que compra (art. 46). Usted vende paddy, que queda excluido: no le devuelven nada. Y el molino paga menos renta, 31 % en vez de 35 % (art. 57).</li>
+    <li><b>El molino, por esa misma carga:</b> ${molT>=0?'se ahorra':'paga'} ${fmt(Math.abs(molT)*CARGA)}${molT<0?' más: con estos supuestos, la rebaja de renta no alcanza a cubrir la nómina y el ACPM':''}.</li>
+    <li><b>Por qué:</b> el molino paga menos renta, 31 % en vez de 35 % (art. 57). Y si el arroz blanco queda exento, como dice el art. 46, le devuelven el IVA de lo que compra; usted vende paddy, que queda excluido, y no le devuelven nada. El art. 42 deja el arroz blanco también como excluido: cambie el escenario abajo para verlo sin esa devolución.</li>
     <li><b>Lo que falta:</b> nada en la ley obliga al molino a pagarle mejor el paddy con lo que se ahorra.</li></ul>
     <span class="arts">Usted: datos de su calculadora · Molino del tamaño de Roa Florhuila con márgenes supuestos; ajústelos abajo · Arts. 46, 57 y 69</span>`;
 }
@@ -585,23 +690,27 @@ function renderAlarms(){
   const zs=Object.keys(ZONAS), ha=zs.map(z=>[z,zonaPerHa(z)]), t=zs.map(z=>[z,zonaPerTon(z)]);
   const hMin=ha.reduce((a,b)=>b[1]<a[1]?b:a), hMax=ha.reduce((a,b)=>b[1]>a[1]?b:a), tMin=t.reduce((a,b)=>b[1]<a[1]?b:a), tMax=t.reduce((a,b)=>b[1]>a[1]?b:a);
   const m1=x=>(x/1e6).toLocaleString('es-CO',{minimumFractionDigits:1,maximumFractionDigits:1}), mm=x=>Math.round(x/1e9).toLocaleString('es-CO');
-  const molT=-sumAt(molSeries(),3);
+  const pM=molParams(), okM=pM.tonOk, rentaNat=okM?pM.ing*pM.marg*.04/pM.ton*NAT_T*TOP3:0, ivaNat=okM?pM.ing*pM.comp*.19*(1-pM.ya)/pM.ton*NAT_T*TOP3:0;
+  if(el('dg-rango')) el('dg-rango').textContent=`$${m1(hMin[1])} y $${m1(hMax[1])}`;
+  if(el('dg-rango2')) el('dg-rango2').textContent=`$${m1(hMin[1])} y $${m1(hMax[1])}`;
+  const dgo=`onclick="document.getElementById('pop2-open').click()" role="button" tabindex="0" style="cursor:pointer"`;
   el('alarms').innerHTML=`
-   <div class="al"><div class="big">19 % de IVA</div><p>Hoy el abono, los agroquímicos, el servicio de tractor y combinada, la asistencia técnica y el agua del distrito no pagan IVA. Desde el 1 de enero de 2028 pagarían 19 %: lo que hoy cuesta $100.000 pasaría a costar $119.000.</p><span class="artc">Arts. 42, 45 y 106</span></div>
-   <div class="al"><div class="big">$${m1(hMin[1])} a $${m1(hMax[1])} millones</div><p>es lo que subiría el costo de sembrar una hectárea de arroz, en cada cosecha. Va desde ${short[hMin[0]]} hasta ${short[hMax[0]]}. Por cada carga de paddy son ${fmt(tMin[1]*CARGA)} a ${fmt(tMax[1]*CARGA)} más; la carga sale más cara donde se cosecha menos por hectárea, como en ${short[tMax[0]]}.</p><span class="artc">Costos UPRA de 6 zonas · arts. 42, 45 y 54</span></div>
-   <div class="al"><div class="big">$${mm(tMin[1]*NAT_T)} a $${mm(tMax[1]*NAT_T)} mil millones</div><p>pagarían de más cada año todos los arroceros del país juntos. Es el aumento por tonelada multiplicado por los 3,71 millones de toneladas que produjo Colombia en 2024. El rango depende de la zona que se tome como base.</p><span class="artc">Arts. 42, 45 y 54</span></div>
-   <div class="al p"><div class="big">Sin devolución</div><p>Quien vende un producto exento le pide a la DIAN que le devuelva el IVA que pagó en sus compras. El paddy del arrocero sigue excluido: no tiene esa devolución y el IVA se le queda como costo. El arroz blanco del molino pasa a exento: el molino sí lo recupera.</p><span class="artc">Art. 46</span></div>
-   <div class="al g"><div class="big">$${mm(molT*NAT_T*TOP3)} mil millones menos</div><p>pagarían cada año, entre IVA y renta, los tres molinos que compran el 51,8 % de la cosecha (Diana, Roa Florhuila y Sonora). Les devuelven el IVA de sus compras y su renta baja de 35 % a 31 %. Estimado con márgenes supuestos que se pueden cambiar en la pestaña de molinería.</p><span class="artc">Arts. 46 y 57</span></div>
-   <div class="al"><div class="big">3,5 veces</div><p>más impuesto al carbono pagaría el galón de ACPM, el combustible del tractor, la combinada y las motobombas. Hoy paga ${fmt(CARB_2026)}; el proyecto lo sube a ${fmt(CARB[2027]*UVT)} en 2027 y a ${fmt(CARB[2029]*UVT)} en 2029 (en pesos de 2026).</p><span class="artc">Art. 54</span></div>
-   <div class="al wide"><div class="big">Por primera vez, los distritos de riego pagarían IVA</div><p>Hoy el riego y la operación, administración y conservación de los distritos de riego no pagan IVA. El proyecto borra esa exclusión: desde 2028 cada distrito tendría que cobrarle 19 % de IVA a sus usuarios sobre la tarifa del agua y declararlo a la DIAN cada dos meses, aunque el usuario no le pague. En un distrito como Usocoello (Tolima), con ${Math.round(num('d-area')).toLocaleString('es-CO')} hectáreas, serían unos ${fmtM(num('d-area')*num('d-tar')*.19)} de IVA al año que saldrían del bolsillo de los arroceros.</p><span class="artc">Art. 45 · vea la pestaña «Distritos de riego»</span></div>`;
+   <div class="al"><div class="big">19 % de IVA</div><p>al abono, los agroquímicos, la maquinaria y el riego desde 2028</p><span class="artc">Arts. 42, 45 y 106</span></div>
+   <div class="al"><div class="big">+$${m1(hMin[1])} a $${m1(hMax[1])} M</div><p>por hectárea en cada cosecha (${fmt(tMin[1]*CARGA)} a ${fmt(tMax[1]*CARGA)} por carga)</p><span class="artc">Arts. 42, 45 y 54</span></div>
+   <div class="al"><div class="big">+$${mm(tMin[1]*NAT_T)} a $${mm(tMax[1]*NAT_T)} mil M</div><p>al año en el país, entre la zona más barata y la más cara (extremos)</p><span class="artc">Arts. 42, 45 y 54</span></div>
+   <div class="al b"><div class="big">Por primera vez</div><p>los distritos de riego cobrarían IVA por el agua</p><span class="artc">Art. 45</span></div>
+   <div class="al"><div class="big">3,5 veces</div><p>más impuesto al carbono en cada galón de ACPM</p><span class="artc">Art. 54</span></div>
+   <div class="al p"><div class="big">Sin devolución</div><p>el arrocero no recupera ese IVA; el molino sí podría</p><span class="artc">Art. 46</span></div>
+   <div class="al g"><div class="big">−$${mm(rentaNat)} mil M</div><p>de renta al año para los 3 grandes molinos (estimado)</p><span class="artc">Art. 57</span></div>
+   <div class="al p" ${dgo}><div class="big">Doble discurso</div><p>Dangond prometió abaratar la producción. <u>Ver más</u></p><span class="artc">Arts. 42, 45 y 106</span></div>`;
 }
 
 /* ---- gráficas y volúmenes (pestaña de molinería) ---- */
 let chP=null,chM=null;
-const PROD_DEF={fert:['Fertilizantes','Art. 42','#e6007e','circle'],plag:['Agroquímicos','Art. 42','#7a2fc2','rect'],maq:['Maquinaria, técnico y seguro','Arts. 45 y 106','#6aa62b','triangle'],agua:['Agua del distrito','Art. 45','#2a78d6','rectRot'],comb:['ACPM (carbono)','Art. 54','#d97706','star'],nom:['Nómina (parafiscales)','Art. 20','#1baf7a','crossRot']};
-const MOL_DEF={renta:['Impuesto de renta','Arts. 57 y 919','#2a78d6','circle'],nom:['Nómina (parafiscales)','Art. 20','#1baf7a','crossRot'],comb:['ACPM (carbono)','Art. 54','#d97706','star'],iva:['IVA de sus compras','Art. 46','#7a2fc2','rect']};
+const PROD_DEF={fert:['Fertilizantes','Art. 42','#e6007e','circle'],plag:['Agroquímicos','Art. 42','#7a2fc2','rect'],serv:['Servicios de maquinaria y técnicos','Art. 45','#6aa62b','triangle'],equ:['Compra de equipos','Art. 42','#e34948','rectRounded'],seg:['Seguro agropecuario','Art. 106','#475569','line'],agua:['Agua del distrito','Art. 45','#2a78d6','rectRot'],comb:['ACPM (carbono)','Art. 54','#d97706','star'],nom:['Nómina (parafiscales)','Art. 20','#1baf7a','crossRot']};
+const MOL_DEF={renta:['Impuesto de renta','Arts. 57 y 69','#2a78d6','circle'],nom:['Nómina (parafiscales)','Art. 20','#1baf7a','crossRot'],comb:['ACPM (carbono)','Art. 54','#d97706','star'],iva:['IVA de sus compras','Art. 46','#7a2fc2','rect']};
 function dsFrom(ser,DEF){
-  const ds=Object.keys(ser).filter(k=>DEF[k]).map(k=>({label:DEF[k][0],art:DEF[k][1],data:ser[k].map(Math.round),borderColor:DEF[k][2],backgroundColor:DEF[k][2],pointStyle:DEF[k][3],pointRadius:4.5,pointHoverRadius:7,borderWidth:2.25,tension:0,pointBorderColor:DEF[k][2],pointBorderWidth:2,fill:false}));
+  const ds=Object.keys(ser).filter(k=>DEF[k]&&ser[k].some(v=>Math.abs(v)>0.5)).map(k=>({label:DEF[k][0],art:DEF[k][1],data:ser[k].map(Math.round),borderColor:DEF[k][2],backgroundColor:DEF[k][2],pointStyle:DEF[k][3],pointRadius:4.5,pointHoverRadius:7,borderWidth:2.25,tension:0,pointBorderColor:DEF[k][2],pointBorderWidth:2,fill:false}));
   const tot=YEARS.map((y,i)=>ds.reduce((s,d)=>s+d.data[i],0));
   ds.push({label:'Total',art:'',data:tot,borderColor:'#0f172a',pointBackgroundColor:'#0f172a',pointStyle:'circle',pointRadius:6,pointHoverRadius:8,borderWidth:3.5,borderDash:[8,5],tension:0,fill:'origin',backgroundColor:tot[tot.length-1]>=0?'rgba(230,0,126,.10)':'rgba(15,118,110,.12)',isTotal:true});
   return ds;
@@ -631,17 +740,57 @@ function updateAll(){
     if(chM){chM.data.datasets=dm;chM.options=opts(min,max);chM.update();}else chM=new Chart(el('ch-m'),{type:'line',data:{labels:YEARS,datasets:dm},options:opts(min,max),plugins:[endLabel]});
   }
   const pt=dp[dp.length-1].data, mt=dm[dm.length-1].data;
-  el('sum-txt').innerHTML=`<b>Cómo leer las gráficas:</b> cada línea es un gasto; si sube, se paga más. En 2027 a su cultivo le sube el ACPM${(ps.nom&&ps.nom[1]>0)?' y la nómina':''}: ${fmt(pt[1]*CARGA)} más por carga. En 2028 llega el IVA al abono, los agroquímicos, la maquinaria y el agua, y el salto es a <b class="up">${fmt(pt[2]*CARGA)} más por carga</b>. Al molino la línea le baja: <b class="${mt[2]<0?'dn':'up'}">${mt[2]<0?'se ahorra':'paga'} ${fmt(Math.abs(mt[2])*CARGA)} por carga</b>, porque le devuelven el IVA de sus compras y paga menos renta.`;
+  el('sum-txt').innerHTML=`<b>Cómo leer las gráficas:</b> cada línea es un gasto; si sube, se paga más. En 2027 a su cultivo le sube el ACPM${(ps.nom&&ps.nom[1]>0)?' y la nómina':''}: ${fmt(pt[1]*CARGA)} más por carga. En 2028 llega el IVA al abono, los agroquímicos, la maquinaria y el agua, y el salto es a <b class="up">${fmt(pt[2]*CARGA)} más por carga</b>. ${molParams().tonOk?(mt[2]<0?`Al molino la línea le baja: <b class="dn">se ahorra ${fmt(Math.abs(mt[2])*CARGA)} por carga</b>, porque paga menos renta${molParams().esc==='exento'?' y le devuelven el IVA de sus compras':''}.`:`Al molino, con estos supuestos, <b class="up">le sube ${fmt(Math.abs(mt[2])*CARGA)} por carga</b>.`):'Para ver la línea del molino, escriba sus toneladas abajo.'}`;
   const p=molParams(), prodT=sumAt(ps,3), molT=-sumAt(ms,3);
-  el('vol-p').textContent='+'+fmtM(prodT*p.ton);
-  el('vol-p-t').innerHTML=`más pagarían al año los arroceros que le venden <b>${Math.round(p.ton).toLocaleString('es-CO')} toneladas</b> a un molino del tamaño de Roa Florhuila, con los costos de su calculadora. Son ${fmt(prodT*CARGA)} más por cada carga.`;
-  el('vol-m').textContent=(molT>=0?'−':'+')+fmtM(Math.abs(molT)*p.ton);
-  el('vol-m-t').innerHTML=`${molT>=0?'dejaría de pagar':'pagaría de más'} al año ese molino por esas mismas <b>${Math.round(p.ton).toLocaleString('es-CO')} toneladas</b>: le devuelven el IVA de sus compras y paga menos renta.`;
+  const escTxt=p.esc==='exento'?'escenario de arroz blanco exento (art. 46)':'escenario de arroz blanco excluido (art. 42)';
   const zs=Object.keys(ZONAS).map(z=>zonaPerTon(z)), tMin=Math.min(...zs), tMax=Math.max(...zs);
-  el('vol-nat').innerHTML=`<b>En todo el país</b> (3,71 millones de toneladas en 2024): los productores pagarían <b class="up">entre ${fmtM(tMin*NAT_T)} y ${fmtM(tMax*NAT_T)} más al año</b>, según la región, mientras los tres molinos que compran el 51,8 % de la cosecha <b class="dn">${molT>=0?'dejarían de pagar':'pagarían'} ${fmtM(Math.abs(molT)*NAT_T*TOP3)}</b>. Desde 2029, con costos UPRA y los supuestos del molino.`;
+  const natP=`<b>En todo el país</b>: si toda la producción de 2024 (3,5 millones de toneladas de paddy verde) tuviera los costos de la zona estudiada más barata o de la más cara, los productores pagarían <b class="up">entre ${fmtM(tMin*NAT_T)} y ${fmtM(tMax*NAT_T)} más al año</b>. Son los dos extremos, no un promedio nacional ponderado.`;
+  if(!p.tonOk){el('vol-p').textContent='—';el('vol-m').textContent='—';el('vol-p-t').textContent='Escriba las toneladas de paddy del molino en la sección de abajo para comparar.';el('vol-m-t').textContent='';el('vol-nat').innerHTML=natP;if(el('m-kpis')) calcMolino();renderAlarms();return;}
+  el('vol-p').textContent=p.tonOk?'+'+fmtM(prodT*p.ton):'—';
+  el('vol-p-t').innerHTML=`más pagarían al año los arroceros que le venden <b>${Math.round(p.ton).toLocaleString('es-CO')} toneladas</b> a un molino del tamaño de Roa Florhuila, con los costos de su calculadora. Son ${fmt(prodT*CARGA)} más por cada carga.`;
+  el('vol-m').textContent=p.tonOk?(molT>=0?'−':'+')+fmtM(Math.abs(molT)*p.ton):'—';
+  el('vol-m-t').innerHTML=`${molT>=0?'podría dejar de pagar':'pagaría de más'} al año un molino con la estructura del molino modelo, por esas mismas <b>${Math.round(p.ton).toLocaleString('es-CO')} toneladas</b>, en el ${escTxt}.`;
+  el('vol-nat').innerHTML=natP+` Con la estructura del molino modelo, los tres molinos que compran el 51,8 % de la cosecha, con la estructura del molino modelo, <b class="dn">${molT>=0?'podrían dejar de pagar':'pagarían'} ${fmtM(Math.abs(molT)*NAT_T*TOP3)}</b>. Escenario orientativo desde 2029, ${escTxt}: IVA trasladado completo y costos UPRA para los productores; para los molinos, los parámetros editables del molino modelo, así que esta cifra cambia si usted los cambia. No es una medición.`;
   if(el('m-kpis')) calcMolino();
   renderAlarms();
 }
+
+/* ---- departamentos y municipios (lista cerrada) ---- */
+const GEO={"Amazonas":["Leticia","Puerto Nariño"],"Antioquia":["Abejorral","Abriaquí","Alejandría","Amagá","Amalfi","Andes","Angelópolis","Angostura","Anorí","Anzá","Apartadó","Arboletes","Argelia","Armenia","Barbosa","Bello","Belmira","Betania","Betulia","Briceño","Buriticá","Caicedo","Caldas","Campamento","Caracolí","Caramanta","Carepa","Carolina del Príncipe","Caucasia","Cañasgordas","Chigorodó","Cisneros","Ciudad Bolívar","Cocorná","Concepción","Concordia","Copacabana","Cáceres","Dabeiba","Donmatías","Ebéjico","El Bagre","El Carmen de Viboral","El Peñol","El Retiro","El Santuario","Entrerríos","Envigado","Fredonia","Frontino","Giraldo","Girardota","Granada","Guadalupe","Guarne","Guatapé","Gómez Plata","Heliconia","Hispania","Itagüí","Ituango","Jardín","Jericó","La Ceja","La Estrella","La Pintada","La Unión","Liborina","Maceo","Marinilla","Medellín","Montebello","Murindó","Mutatá","Nariño","Nechí","Necoclí","Olaya","Peque","Pueblorrico","Puerto Berrío","Puerto Nare","Puerto Triunfo","Remedios","Rionegro","Sabanalarga","Sabaneta","Salgar","San Andrés de Cuerquia","San Carlos","San Francisco","San Jerónimo","San José de la Montaña","San Juan de Urabá","San Luis","San Pedro de Urabá","San Pedro de los Milagros","San Rafael","San Roque","San Vicente","Santa Bárbara","Santa Fe de Antioquia","Santa Rosa de Osos","Santo Domingo","Segovia","Sonsón","Sopetrán","Tarazá","Tarso","Titiribí","Toledo","Turbo","Támesis","Uramita","Urrao","Valdivia","Valparaíso","Vegachí","Venecia","Vigía del Fuerte","Yalí","Yarumal","Yolombó","Yondó","Zaragoza"],"Arauca":["Arauca","Arauquita","Cravo Norte","Fortul","Puerto Rondón","Saravena","Tame"],"Atlántico":["Baranoa","Barranquilla","Campo de la Cruz","Candelaria","Galapa","Juan de Acosta","Luruaco","Malambo","Manatí","Palmar de Varela","Piojó","Polonuevo","Ponedera","Puerto Colombia","Repelón","Sabanagrande","Sabanalarga","Santa Lucía","Santo Tomás","Soledad","Suán","Tubará","Usiacurí"],"Bolívar":["Achí","Altos del Rosario","Arenal","Arjona","Arroyohondo","Barranco de Loba","Brazuelo de Papayal","Calamar","Cantagallo","Cartagena de Indias","Cicuco","Clemencia","Córdoba","El Carmen de Bolívar","El Guamo","El Peñón","Hatillo de Loba","Magangué","Mahates","Margarita","María la Baja","Mompós","Montecristo","Morales","Norosí","Pinillos","Regidor","Río Viejo","San Cristóbal","San Estanislao","San Fernando","San Jacinto","San Jacinto del Cauca","San Juan Nepomuceno","San Martín de Loba","San Pablo","Santa Catalina","Santa Rosa","Santa Rosa del Sur","Simití","Soplaviento","Talaigua Nuevo","Tiquisio","Turbaco","Turbaná","Villanueva","Zambrano"],"Boyacá":["Almeida","Aquitania","Arcabuco","Belén","Berbeo","Betéitiva","Boavita","Boyacá","Briceño","Buenavista","Busbanzá","Caldas","Campohermoso","Cerinza","Chinavita","Chiquinquirá","Chiscas","Chita","Chitaraque","Chivatá","Chivor","Chíquiza","Ciénega","Coper","Corrales","Covarachía","Cubará","Cucaita","Cuítiva","Cómbita","Duitama","El Cocuy","El Espino","Firavitoba","Floresta","Gachantivá","Garagoa","Guacamayas","Guateque","Guayatá","Gámeza","Güicán","Iza","Jenesano","Jericó","La Capilla","La Uvita","La Victoria","Labranzagrande","Macanal","Maripí","Miraflores","Mongua","Monguí","Moniquirá","Motavita","Muzo","Nobsa","Nuevo Colón","Oicatá","Otanche","Pachavita","Paipa","Pajarito","Panqueba","Pauna","Paya","Paz del Río","Pesca","Pisba","Puerto Boyacá","Páez","Quípama","Ramiriquí","Rondón","Ráquira","Saboyá","Samacá","San Eduardo","San José de Pare","San Luis de Gaceno","San Mateo","San Miguel de Sema","San Pablo de Borbur","Santa María","Santa Rosa de Viterbo","Santa Sofía","Santana","Sativanorte","Sativasur","Siachoque","Soatá","Socha","Socotá","Sogamoso","Somondoco","Sora","Soracá","Sotaquirá","Susacón","Sutamarchán","Sutatenza","Sáchica","Tasco","Tenza","Tibaná","Tibasosa","Tinjacá","Tipacoque","Toca","Togüí","Tota","Tunja","Tununguá","Turmequé","Tuta","Tutazá","Tópaga","Ventaquemada","Villa de Leyva","Viracachá","Zetaquira","Úmbita"],"Caldas":["Aguadas","Anserma","Aranzazu","Belalcázar","Chinchiná","Filadelfia","La Dorada","La Merced","Manizales","Manzanares","Marmato","Marquetalia","Marulanda","Neira","Norcasia","Palestina","Pensilvania","Pácora","Riosucio","Risaralda","Salamina","Samaná","San José","Supía","Victoria","Villamaría","Viterbo"],"Caquetá":["Albania","Belén de los Andaquíes","Cartagena del Chairá","Curillo","El Doncello","El Paujil","Florencia","La Montañita","Milán","Morelia","Puerto Rico","San José del Fragua","San Vicente del Caguán","Solano","Solita","Valparaíso"],"Casanare":["Aguazul","Chámeza","Hato Corozal","La Salina","Maní","Monterrey","Nunchía","Orocué","Paz de Ariporo","Pore","Recetor","Sabanalarga","San Luis de Palenque","Sácama","Tauramena","Trinidad","Támara","Villanueva","Yopal"],"Cauca":["Almaguer","Argelia","Balboa","Bolívar","Buenos Aires","Cajibío","Caldono","Caloto","Corinto","El Tambo","Florencia","Guachené","Guapí","Inzá","Jambaló","La Sierra","La Vega","López de Micay","Mercaderes","Miranda","Morales","Padilla","Patía","Piamonte","Piendamó","Popayán","Puerto Tejada","Puracé","Páez","Rosas","San Sebastián","Santa Rosa","Santander de Quilichao","Silvia","Sotará","Sucre","Suárez","Timbiquí","Timbío","Toribío","Totoró","Villa Rica"],"Cesar":["Aguachica","Agustín Codazzi","Astrea","Becerril","Bosconia","Chimichagua","Chiriguaná","Curumaní","El Copey","El Paso","Gamarra","González","La Gloria (Cesar)","La Jagua de Ibirico","La Paz","Manaure Balcón del Cesar","Pailitas","Pelaya","Pueblo Bello","Río de Oro","San Alberto","San Diego","San Martín","Tamalameque","Valledupar"],"Chocó":["Acandí","Alto Baudó","Bagadó","Bahía Solano","Bajo Baudó","Bojayá","Cantón de San Pablo","Condoto","Cértegui","El Atrato","El Carmen de Atrato","El Carmen del Darién","Istmina","Juradó","Litoral de San Juan","Lloró","Medio Atrato","Medio Baudó","Medio San Juan","Nuquí","Nóvita","Quibdó","Riosucio","Río Iró","Río Quito","San José del Palmar","Sipí","Tadó","Unguía","Unión Panamericana"],"Cundinamarca":["Agua de Dios","Albán","Anapoima","Anolaima","Apulo","Arbeláez","Beltrán","Bituima","Bogotá","Bojacá","Cabrera","Cachipay","Cajicá","Caparrapí","Carmen de Carupa","Chaguaní","Chipaque","Choachí","Chocontá","Chía","Cogua","Cota","Cucunubá","Cáqueza","El Colegio","El Peñón","El Rosal","Facatativá","Fosca","Funza","Fusagasugá","Fómeque","Fúquene","Gachalá","Gachancipá","Gachetá","Gama","Girardot","Granada","Guachetá","Guaduas","Guasca","Guataquí","Guatavita","Guayabal de Síquima","Guayabetal","Gutiérrez","Jerusalén","Junín","La Calera","La Mesa","La Palma","La Peña","La Vega","Lenguazaque","Machetá","Madrid","Manta","Medina","Mosquera","Nariño","Nemocón","Nilo","Nimaima","Nocaima","Pacho","Paime","Pandi","Paratebueno","Pasca","Puerto Salgar","Pulí","Quebradanegra","Quetame","Quipile","Ricaurte","San Antonio del Tequendama","San Bernardo","San Cayetano","San Francisco","San Juan de Rioseco","Sasaima","Sesquilé","Sibaté","Silvania","Simijaca","Soacha","Sopó","Subachoque","Suesca","Supatá","Susa","Sutatausa","Tabio","Tausa","Tena","Tenjo","Tibacuy","Tibirita","Tocaima","Tocancipá","Topaipí","Ubalá","Ubaque","Ubaté","Une","Venecia","Vergara","Vianí","Villagómez","Villapinzón","Villeta","Viotá","Yacopí","Zipacón","Zipaquirá","Útica"],"Córdoba":["Ayapel","Buenavista","Canalete","Cereté","Chimá","Chinú","Ciénaga de Oro","Cotorra","La Apartada","Lorica","Los Córdobas","Momil","Montelíbano","Montería","Moñitos","Planeta Rica","Pueblo Nuevo","Puerto Escondido","Puerto Libertador","Purísima","Sahagún","San Andrés de Sotavento","San Antero","San Bernardo del Viento","San Carlos","San José de Uré","San Pelayo","Tierralta","Tuchín","Valencia"],"Guainía":["Inírida"],"Guaviare":["Calamar","El Retorno","Miraflores","San José del Guaviare"],"Huila":["Acevedo","Agrado","Aipe","Algeciras","Altamira","Baraya","Campoalegre","Colombia","El Pital","Elías","Garzón","Gigante","Guadalupe","Hobo","Isnos","La Argentina","La Plata","Neiva","Nátaga","Oporapa","Paicol","Palermo","Palestina","Pitalito","Rivera","Saladoblanco","San Agustín","Santa María","Suaza","Tarqui","Tello","Teruel","Tesalia","Timaná","Villavieja","Yaguará","Íquira"],"La Guajira":["Albania","Barrancas","Dibulla","Distracción","El Molino","Fonseca","Hatonuevo","La Jagua del Pilar","Maicao","Manaure","Riohacha","San Juan del Cesar","Uribia","Urumita","Villanueva"],"Magdalena":["Algarrobo","Aracataca","Ariguaní","Cerro de San Antonio","Chibolo","Chibolo","Ciénaga","Concordia","El Banco","El Piñón","El Retén","Fundación","Guamal","Nueva Granada","Pedraza","Pijiño del Carmen","Pivijay","Plato","Pueblo Viejo","Remolino","Sabanas de San Ángel","Salamina","San Sebastián de Buenavista","San Zenón","Santa Ana","Santa Bárbara de Pinto","Santa Marta","Sitionuevo","Tenerife","Zapayán","Zona Bananera"],"Meta":["Acacías","Barranca de Upía","Cabuyaro","Castilla la Nueva","Cubarral","Cumaral","El Calvario","El Castillo","El Dorado","Fuente de Oro","Granada","Guamal","La Macarena","La Uribe","Lejanías","Mapiripán","Mesetas","Puerto Concordia","Puerto Gaitán","Puerto Lleras","Puerto López","Puerto Rico","Restrepo","San Carlos de Guaroa","San Juan de Arama","San Juanito","San Martín","Villavicencio","Vista Hermosa"],"Nariño":["Aldana","Ancuyá","Arboleda","Barbacoas","Belén","Buesaco","Chachagüí","Colón","Consacá","Contadero","Cuaspud","Cumbal","Cumbitara","Córdoba","El Charco","El Peñol","El Rosario","El Tablón","El Tambo","Francisco Pizarro","Funes","Guachucal","Guaitarilla","Gualmatán","Iles","Imués","Ipiales","La Cruz","La Florida","La Llanada","La Tola","La Unión","Leiva","Linares","Los Andes","Magüí Payán","Mallama","Mosquera","Nariño","Olaya Herrera","Ospina","Pasto","Policarpa","Potosí","Providencia","Puerres","Pupiales","Ricaurte","Roberto Payán","Samaniego","San Bernardo","San José de Albán","San Lorenzo","San Pablo","San Pedro de Cartago","Sandoná","Santa Bárbara","Santacruz","Sapuyes","Taminango","Tangua","Tumaco","Túquerres","Yacuanquer"],"Norte de Santander":["Arboledas","Bochalema","Bucarasica","Chinácota","Chitagá","Convención","Cucutilla","Cáchira","Cácota","Cúcuta","Duranía","El Carmen","El Tarra","El Zulia","Gramalote","Hacarí","Herrán","La Esperanza","La Playa de Belén","Labateca","Los Patios","Lourdes","Mutiscua","Ocaña","Pamplona","Pamplonita","Puerto Santander","Ragonvalia","Salazar de Las Palmas","San Calixto","San Cayetano","Santiago","Santo Domingo de Silos","Sardinata","Teorama","Tibú","Toledo","Villa Caro","Villa del Rosario","Ábrego"],"Putumayo":["Colón","Mocoa","Orito","Puerto Asís","Puerto Caicedo","Puerto Guzmán","Puerto Leguízamo","San Francisco","San Miguel","Santiago","Sibundoy","Valle del Guamuez","Villagarzón"],"Quindío":["Armenia","Buenavista","Calarcá","Circasia","Córdoba","Filandia","Génova","La Tebaida","Montenegro","Pijao","Quimbaya","Salento"],"Risaralda":["Apía","Balboa","Belén de Umbría","Dosquebradas","Guática","La Celia","La Virginia","Marsella","Mistrató","Pereira","Pueblo Rico","Quinchía","Santa Rosa de Cabal","Santuario"],"Santander":["Aguada","Albania","Aratoca","Barbosa","Barichara","Barrancabermeja","Betulia","Bolívar","Bucaramanga","Cabrera","California","Capitanejo","Carcasí","Cepitá","Cerrito","Charalá","Charta","Chima","Chipatá","Cimitarra","Concepción","Confines","Contratación","Coromoro","Curití","El Carmen de Chucurí","El Guacamayo","El Peñón","El Playón","El Socorro","Encino","Enciso","Floridablanca","Florián","Galán","Girón","Guaca","Guadalupe","Guapotá","Guavatá","Gámbita","Güepsa","Hato","Jesús María","Jordán","La Belleza","La Paz","Landázuri","Lebrija","Los Santos","Macaravita","Matanza","Mogotes","Molagavita","Málaga","Ocamonte","Oiba","Onzaga","Palmar","Palmas del Socorro","Piedecuesta","Pinchote","Puente Nacional","Puerto Parra","Puerto Wilches","Páramo","Rionegro","Sabana de Torres","San Andrés","San Benito","San Gil","San Joaquín","San José de Miranda","San Miguel","San Vicente de Chucurí","Santa Bárbara","Santa Helena del Opón","Simacota","Suaita","Sucre","Suratá","Tona","Valle de San José","Vetas","Villanueva","Vélez","Zapatoca"],"Sucre":["Buenavista","Caimito","Chalán","Colosó","Corozal","Coveñas","El Roble","Galeras","Guaranda","La Unión","Los Palmitos","Majagual","Morroa","Ovejas","Sampués","San Antonio de Palmito","San Benito Abad","San Juan de Betulia","San Marcos","San Onofre","San Pedro","Sincelejo","Sincé","Sucre","Tolú","Tolú Viejo"],"Tolima":["Alpujarra","Alvarado","Ambalema","Anzoátegui","Armero","Ataco","Cajamarca","Carmen de Apicalá","Casabianca","Chaparral","Coello","Coyaima","Cunday","Dolores","El Espinal","Falán","Flandes","Fresno","Guamo","Herveo","Honda","Ibagué","Icononzo","Lérida","Líbano","Mariquita","Melgar","Murillo","Natagaima","Ortega","Palocabildo","Piedras","Planadas","Prado","Purificación","Rioblanco","Roncesvalles","Rovira","Saldaña","San Antonio","San Luis","Santa Isabel","Suárez","Valle de San Juan","Venadillo","Villahermosa","Villarrica"],"Valle del Cauca":["Alcalá","Andalucía","Ansermanuevo","Argelia","Bolívar","Buenaventura","Buga","Bugalagrande","Caicedonia","Cali","Calima","Candelaria","Cartago","Dagua","El Cairo","El Cerrito","El Dovio","El Águila","Florida","Ginebra","Guacarí","Jamundí","La Cumbre","La Unión","La Victoria","Obando","Palmira","Pradera","Restrepo","Riofrío","Roldanillo","San Pedro","Sevilla","Toro","Trujillo","Tuluá","Ulloa","Versalles","Vijes","Yotoco","Yumbo","Zarzal"],"Vaupés":["Carurú","Mitú","Taraira"],"Vichada":["Cumaribo","La Primavera","Puerto Carreño","Santa Rosalía"]};
+(function(){
+  const dep=el('f-dep'),mun=el('f-mun'),opt=(v)=>{const o=document.createElement('option');o.value=v;o.textContent=v;return o};
+  Object.keys(GEO).sort((a,b)=>a.localeCompare(b,'es')).forEach(k=>dep.appendChild(opt(k)));
+  dep.addEventListener('change',()=>{mun.innerHTML='<option value="">Prefiero no decirlo</option>';(GEO[dep.value]||[]).forEach(m=>mun.appendChild(opt(m)));mun.disabled=!dep.value;});
+})();
+/* ---- respaldo anónimo de cálculos en Google Sheets ---- */
+const SHEET_URL='https://script.google.com/macros/s/AKfycbyCIKwzLtxWfNEcaFtfdZo2-3hV16Dd_JQPYGf-PG6sKWet1MyI2cTyCA8mJDwbiMkzEA/exec';
+(function(){
+  if(!SHEET_URL||SHEET_URL.indexOf('http')!==0){const l=document.querySelector('p.share');if(l)l.hidden=true;return;}
+  let sid; try{sid=sessionStorage.getItem('arroz_sid');if(!sid){sid=Date.now().toString(36)+Math.random().toString(36).slice(2,8);sessionStorage.setItem('arroz_sid',sid);}}catch(e){sid=Date.now().toString(36)+Math.random().toString(36).slice(2,8);}
+  let touched=false,timer=null,lastSent='';
+  const zonaTxt=()=>{const o=el('f-zona').selectedOptions[0];return o?o.textContent:''};
+  function payload(){
+    const L=window.LAST_FINCA||{};
+    const cols=['Sesión','Zona de referencia','Departamento','Municipio','Forma','Hectáreas','Cosechas al año','Cargas por hectárea','Precio por carga','Galones ACPM por ha','Trabajadores','Trabajadores 2-3 SMLMV','Trabajadores >3 SMLMV'];
+    const vals=[sid,zonaTxt(),el('f-dep').value,el('f-mun').value,el('f-forma').value==='soc'?'Sociedad':'Persona natural',num('f-ha'),num('f-cic'),num('f-yld'),num('f-price'),num('f-gal'),num('f-wt'),num('f-w2'),num('f-w3')];
+    FROWS.forEach(r=>{cols.push(r.n+' ($/ha por cosecha)');vals.push(num('fr-'+r.k));});
+    cols.push('Costo por ha 2026','Costo por ha 2027','Costo por ha 2028','Costo por ha 2029+','Aumento por ha por cosecha','Aumento por carga','Aumento total al año (2029+)');
+    vals.push(...['c26','c27','c28','c29','dHa','dC','d29'].map(k=>Math.round(L[k]||0)));
+    return {cols,vals};
+  }
+  function send(beacon){
+    if(!touched||!(num('f-ha')>0&&num('f-yld')>0)) return;
+    const body=JSON.stringify(payload()); if(body===lastSent) return; lastSent=body;
+    try{
+      if(beacon&&navigator.sendBeacon){navigator.sendBeacon(SHEET_URL,new Blob([body],{type:'text/plain;charset=utf-8'}));}
+      else fetch(SHEET_URL,{method:'POST',mode:'no-cors',headers:{'Content-Type':'text/plain;charset=utf-8'},body}).catch(()=>{});
+    }catch(e){}
+  }
+  const mark=e=>{if(!e.isTrusted) return;touched=true;clearTimeout(timer);timer=setTimeout(()=>send(false),15000);};
+  el('finca').addEventListener('input',mark); el('finca').addEventListener('change',mark);
+  document.addEventListener('visibilitychange',()=>{if(document.visibilityState==='hidden'){clearTimeout(timer);send(true);}});
+  window.addEventListener('pagehide',()=>send(true));
+})();
 
 /* ---- montaje ---- */
 buildFincaTable(); loadZona('tolima');
@@ -658,13 +807,14 @@ function fromHash(){const h=location.hash.slice(1);if(tabs.some(t=>t.getAttribut
 window.addEventListener('hashchange',fromHash);fromHash();
 /* ventana de bienvenida */
 (function(){const pop=el('pop');
+  const open=(toDg)=>{pop.hidden=false;const box=pop.querySelector('.box');if(toDg){el('pop-dg').scrollIntoView()}else{box.scrollTop=0}el('pop-go').focus({preventScroll:true})};
   const close=()=>{pop.hidden=true};
-  const open=()=>{pop.hidden=false;el('pop-go').focus()};
-  el('pop-go').addEventListener('click',close);
-  el('pop-open').addEventListener('click',open);
+  el('pop-go').addEventListener('click',()=>{close();show('finca')});
+  el('pop-open').addEventListener('click',()=>open(false));
+  el('pop2-open').addEventListener('click',()=>open(true));
   pop.addEventListener('click',e=>{if(e.target===pop)close()});
   document.addEventListener('keydown',e=>{if(e.key==='Escape'&&!pop.hidden)close()});
-  open();})();
+  open(false);})();
 </script>
 </body>
 </html>
