@@ -70,6 +70,8 @@ header.top{background:var(--navy);color:#fff;border-bottom:5px solid var(--fuchs
 @media (max-width:600px){.al{padding:6px 9px;border-left-width:4px}.al .big{font-size:16.5px}.al p{font-size:12.5px}.al .artc{font-size:10.5px}.hero .sub{font-size:14px}}
 .pf .share{flex-basis:100%;margin:6px 0 0;font-size:11.5px;line-height:1.35;color:var(--muted)}
 .share{font-size:12.5px;color:var(--muted);margin-top:8px;line-height:1.35}
+.ivac{white-space:nowrap}.ivac .artc{display:block;margin-top:3px}
+#f-table td,#f-table th{padding-left:6px;padding-right:6px}#f-table td:first-child{min-width:120px}#f-table input{width:104px;padding:6px 6px;font-size:14px}#f-table td.num{padding-left:4px}#f-table{font-size:14px}
 .byline{margin-top:8px;font-size:13.5px;color:var(--muted)}
 .byline b{color:var(--ink);font-weight:700}
 /* bloques */
@@ -302,23 +304,18 @@ footer a{color:#f9a8d4} footer b{color:#fff}
       </div>
       <div class="grid" style="align-content:start">
         <div class="kpis" id="f-kpis"></div>
-        <div class="card t-g"><h3>Cómo usar la calculadora</h3><ul>
-          <li>Escoja su zona para cargar costos de referencia de la UPRA, o escriba los suyos.</li>
-          <li>En la tabla de abajo ponga lo que paga hoy por hectárea en cada rubro. Lo que no use, déjelo en cero.</li>
-          <li>Si la siembra, la fumigación o la cosecha las hace con su propio tractor y sus trabajadores, ese valor no lleva IVA: páselo a «Labores y jornales». El IVA nuevo cae sobre el servicio contratado.</li>
-          <li>Las casillas de arriba le dicen cuánto le cuesta el año hoy, en 2027, en 2028 y de 2029 en adelante.</li></ul></div>
-        <div class="card t-g"><h3>Su impuesto de renta · arts. 48 y 49</h3>
+        <div class="card t-f">
+          <h3>¿Cuánto paga hoy por hectárea en cada cosecha?</h3>
+          <p class="note" style="margin-bottom:10px">Escriba lo que paga hoy en cada rubro; lo que no use, déjelo en cero. La tabla calcula sola cuánto le costaría en 2027, en 2028 y de 2029 en adelante, y las casillas de arriba suman el año. Si la siembra, la fumigación o la cosecha las hace con su propio tractor y sus trabajadores, ese valor no lleva IVA: páselo a «Labores y jornales».</p>
+          <div class="tw"><table id="f-table"></table></div>
+          <p class="note" style="margin-top:10px">El cálculo supone que el 19 % se traslada completo al precio del insumo o servicio. Como los bienes que hoy no tienen IVA ya cargan algo de IVA oculto en su cadena, el alza real puede ser 1 a 3 puntos menor. No incluye el alivio que tendría el ACPM al quedar del todo sin IVA desde 2028 (arts. 42 y 44), que es pequeño frente al aumento del impuesto al carbono.</p>
+        </div>
+      </div>
+    </div>
+    <div class="card t-g" style="margin-top:16px"><h3>Su impuesto de renta · arts. 48 y 49</h3>
           <label class="f" for="f-renta">Si declara renta como persona natural: renta líquida gravable del año ($) <input type="number" id="f-renta" value="60000000" min="0" step="1000000"></label>
           <div class="tw"><table id="f-rtable"></table></div>
           <p class="note" style="margin-top:8px">Aparece un tramo nuevo de 9 % entre 720 y 1.090 UVT (≈$37,7 a $57,1 millones) y los tramos altos se unifican en 39 %. Deducciones y rentas exentas quedan topadas en 1.180 UVT (hoy 1.340). Si produce como sociedad, la tarifa baja de 35 % a 33 % en 2027 y 31 % en 2028 (art. 57), pero solo sirve a quien tiene utilidades.</p></div>
-      </div>
-    </div>
-    <div class="card t-f" style="margin-top:16px">
-      <h3>¿Cuánto paga hoy por hectárea en cada cosecha?</h3>
-      <p class="note" style="margin-bottom:10px">Escriba lo que paga hoy en cada rubro. La tabla calcula sola cuánto le costaría en 2027, en 2028 y de 2029 en adelante.</p>
-      <div class="tw"><table id="f-table"></table></div>
-      <p class="note" style="margin-top:10px">El cálculo supone que el 19 % se traslada completo al precio del insumo o servicio. Como los bienes que hoy no tienen IVA ya cargan algo de IVA oculto en su cadena, el alza real puede ser 1 a 3 puntos menor. No incluye el alivio que tendría el ACPM al quedar del todo sin IVA desde 2028 (arts. 42 y 44), que es pequeño frente al aumento del impuesto al carbono.</p>
-    </div>
   </section>
 
   <!-- ============ DISTRITO ============ -->
@@ -546,10 +543,10 @@ const FROWS=[
 const tagH=r=>r.hoy===null?['p-eq','Igual']:r.hoy===.05?['p-5','5 %']:r.hoy===.19?['p-19','19 %']:['p-ex','Sin IVA'];
 const tagN=r=>r.nuevo===null?['p-eq','Sin cambio']:r.nuevo===.19?['p-19','19 %']:['p-ex','Sin IVA'];
 function buildFincaTable(){
-  el('f-table').innerHTML=`<thead><tr><th>Rubro</th><th class="num">Hoy paga por ha</th><th>IVA hoy</th><th>Desde 2028</th><th>Artículo</th><th class="num">2027</th><th class="num">2028</th><th class="num">2029 en adelante</th></tr></thead><tbody>`+
-  FROWS.map(r=>{const a=tagH(r),b=tagN(r);return `<tr><td><label for="fr-${r.k}">${r.n}</label>${r.hint?`<span class="hint">${r.hint}</span>`:''}</td><td class="num"><input type="number" id="fr-${r.k}" value="0" min="0" step="10000"></td><td><span class="pill ${a[0]}">${a[1]}</span></td><td><span class="pill ${b[0]}">${b[1]}</span></td><td class="artc">${r.art}</td><td class="num" id="fy27-${r.k}"></td><td class="num" id="fy28-${r.k}"></td><td class="num" id="fy29-${r.k}"></td></tr>`}).join('')+
-  `<tr><td>ACPM: impuesto al carbono<span class="hint">Hoy ${fmt(CARB_2026)} por galón</span></td><td class="num" id="f-galtxt"></td><td><span class="pill p-eq">${fmt(CARB_2026)}/gal</span></td><td><span class="pill p-19">${fmt(CARB[2029]*UVT)}/gal en 2029</span></td><td class="artc">Art. 54</td><td class="num" id="fy27-carb"></td><td class="num" id="fy28-carb"></td><td class="num" id="fy29-carb"></td></tr>
-   <tr class="tot"><td>Total por hectárea en cada cosecha</td><td class="num" id="f-tot26"></td><td></td><td></td><td></td><td class="num" id="f-tot27"></td><td class="num" id="f-tot28"></td><td class="num" id="f-tot29"></td></tr></tbody>`;
+  el('f-table').innerHTML=`<thead><tr><th>Rubro</th><th class="num">Hoy paga por ha</th><th>IVA: hoy → 2028</th><th class="num">2027</th><th class="num">2028</th><th class="num">2029 +</th></tr></thead><tbody>`+
+  FROWS.map(r=>{const a=tagH(r),b=tagN(r);return `<tr><td><label for="fr-${r.k}">${r.n}</label>${r.hint?`<span class="hint">${r.hint}</span>`:''}</td><td class="num"><input type="number" id="fr-${r.k}" value="0" min="0" step="10000"></td><td class="ivac"><span class="pill ${a[0]}">${a[1]}</span> → <span class="pill ${b[0]}">${b[1]}</span><span class="artc">${r.art}</span></td><td class="num" id="fy27-${r.k}"></td><td class="num" id="fy28-${r.k}"></td><td class="num" id="fy29-${r.k}"></td></tr>`}).join('')+
+  `<tr><td>ACPM: impuesto al carbono<span class="hint">Hoy ${fmt(CARB_2026)} por galón</span></td><td class="num" id="f-galtxt"></td><td class="ivac"><span class="pill p-eq">${fmt(CARB_2026)}/gal</span> → <span class="pill p-19">${fmt(CARB[2029]*UVT)}/gal</span><span class="artc">Art. 54 · valor de 2029</span></td><td class="num" id="fy27-carb"></td><td class="num" id="fy28-carb"></td><td class="num" id="fy29-carb"></td></tr>
+   <tr class="tot"><td>Total por hectárea en cada cosecha</td><td class="num" id="f-tot26"></td><td></td><td class="num" id="f-tot27"></td><td class="num" id="f-tot28"></td><td class="num" id="f-tot29"></td></tr></tbody>`;
 }
 function presetVal(Z,k){const v=Z.v;if(k==='jor')return v.jor+v.siem+v.fum;if(k==='siem'||k==='fum'||k==='asis')return 0;if(k==='otr')return v.otr+v.asis;if(k==='agua')return Z.agua;if(k==='arr')return 1200000;return v[k]===undefined?0:v[k]}
 function loadZona(z){
