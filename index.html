@@ -45,7 +45,7 @@ header.top{background:var(--navy);color:#fff;border-bottom:5px solid var(--fuchs
 .mast-sub{color:#aab0c0;font-size:13px;margin-top:3px}
 .cred{text-align:right;line-height:1.2}
 .cred .k{font-size:11px;color:#aab0c0;text-transform:uppercase;letter-spacing:.08em}
-.cred .who{font-family:var(--display);font-weight:800;font-size:16px;color:#fff;margin:2px 0}
+.cred .who{font-family:var(--display);font-weight:700;font-size:13.5px;color:#fff;margin:1px 0}
 .cred .r{font-size:12px;color:#cbd2de;font-weight:500}
 @media (max-width:700px){.cred{text-align:left}}
 /* alerta de inicio */
@@ -245,7 +245,18 @@ footer a{color:#f9a8d4} footer b{color:#fff}
 #pop .pb{padding:20px 24px;display:grid;gap:12px;font-size:16px}
 #pop .pb .warn{background:#fdf2f8;border-left:5px solid var(--fuchsia);padding:10px 14px;border-radius:0 8px 8px 0;font-weight:600}
 #pop .pf{padding:0 24px 22px;display:flex;flex-wrap:wrap;gap:12px;align-items:center;justify-content:space-between}
-#pop .pf{position:sticky;bottom:0;background:#fff;padding-top:12px;border-top:1px solid var(--line);box-shadow:0 -8px 16px rgba(15,23,42,.07)}
+.steps{display:grid;grid-template-columns:1fr;gap:10px}
+.st .ya{display:block;margin-top:8px;font-size:12.5px!important;color:var(--muted)!important}
+.chips em{white-space:nowrap;font-style:normal;background:#e6007e;color:#fff;border-radius:999px;padding:0 6px;margin-left:3px;font-size:12px}
+.st.s1{align-items:center}
+.chips{display:flex;flex-wrap:wrap;gap:5px;margin-top:4px}.chips i{font-style:normal;font-size:13px;font-weight:700;background:#fff;border:1px solid #d9c6f0;color:#5b1fa0;border-radius:999px;padding:2px 9px}
+.st{display:flex;gap:10px;align-items:flex-start;border-radius:12px;padding:12px;border:1px solid var(--line);border-top:5px solid var(--fuchsia);background:#fff}
+.st.s1{background:#fdf0f7}.st.s2{border-top-color:var(--purple);background:#f5effc}.st.s3{border-top-color:var(--green);background:#f1f8e8}
+.st .ic{font-size:26px;line-height:1;flex:0 0 auto;width:44px;height:44px;border-radius:50%;background:#fff;display:grid;place-items:center;box-shadow:0 1px 4px rgba(15,23,42,.12)}
+.st b{display:block;font:800 15.5px var(--display);margin-bottom:2px}
+.st span:not(.ic){font-size:14px;line-height:1.35;color:var(--ink)}
+
+#pop .pf{position:sticky;bottom:0;z-index:20;background:#fff;padding-top:12px;border-top:1px solid var(--line);box-shadow:0 -8px 16px rgba(15,23,42,.07)}
 @media (max-width:600px){#pop .pf{padding:10px 16px 12px;gap:8px}#pop .pf .dev{display:none}#pop .pf .go{width:100%}#pop .pf .share{margin:0;font-size:10.5px}}
 #pop .go{background:var(--fuchsia);color:#fff;border:0;border-radius:10px;padding:12px 20px;font:900 16px var(--display);cursor:pointer;text-transform:uppercase}
 #pop .dev{font-size:14px;color:var(--muted)}
@@ -259,12 +270,11 @@ footer a{color:#f9a8d4} footer b{color:#fff}
     <div class="pb">
       <div class="movi-pop" role="note">📣 <b>Gran Movilización Nacional el 19 de noviembre</b> en todos los municipios del país, contra la Reforma Tributaria («Ley de Rescate») del gobierno de Abelardo de la Espriella. Los productores agropecuarios se movilizan contra el IVA y el encarecimiento de los costos de producción.</div>
       <p class="warn">La Senadora Laura Ahumada preparó esta herramienta para el gremio arrocero y los productores, para alertar sobre el impacto demoledor que la Reforma Tributaria tendrá en el sector.</p>
-      <p>El Gobierno radicó la «Ley de Rescate Económico» el 29 de octubre de 2026. Aquí usted puede:</p>
-      <ul>
-        <li>Escribir sus hectáreas y lo que paga hoy por abono, agroquímicos, maquinaria, agua, arriendo y jornales.</li>
-        <li>Ver cuánto le costaría su cosecha en 2027, en 2028 y de 2029 en adelante, con el artículo del proyecto que causa cada aumento.</li>
-        <li>Comparar, rubro por rubro, lo que empieza a pagar el productor con lo que deja de pagar la gran molinería.</li>
-      </ul>
+      <p>El Gobierno radicó la «Ley de Rescate Económico» el 29 de octubre de 2026.</p>
+      <div class="steps">
+        <div class="st s2"><span class="ic">📈</span><div><b>¿Qué costos suben con la «Ley de Rescate» o Reforma Tributaria de Abelardo de la Espriella y el Ministro de Agricultura Indalecio Dangond?</b><div class="chips"><i>Fertilizantes y abonos <em>+19 %</em></i><i>Herbicidas <em>+19 %</em></i><i>Insecticidas <em>+19 %</em></i><i>Fungicidas <em>+19 %</em></i><i>Preparación del suelo <em>+19 %</em></i><i>Siembra contratada <em>+19 %</em></i><i>Fumigación <em>+19 %</em></i><i>Cosecha con combinada <em>+19 %</em></i><i>Asistencia técnica <em>+19 %</em></i><i>Agua de riego <em>+19 %</em></i><i>Secamiento y trilla <em>+19 %</em></i><i>Tractores y combinadas <em>+19 %</em></i><i>Sistemas de riego completos <em>+19 %</em></i><i>Arados, sembradoras y fumigadoras <em>+13 %</em></i><i>Seguro agropecuario <em>+13 %</em></i><i>ACPM <em>impuesto ×3,5</em></i></div><span class="ya">Ya pagan 19 % hoy y siguen igual: coadyuvantes, motobombas, tuberías y repuestos sueltos, lubricantes, empaques y alquiler de maquinaria sin operario.</span></div></div>
+        <div class="st s1"><span class="ic">🧮</span><div><b>Con esta herramienta podrá calcular cuánto subirán sus costos de producción, con los valores reales de su cultivo.</b></div></div>
+      </div>
       <p class="note">Trae valores de referencia de la UPRA para Tolima, Huila, Valle del Cauca, Meta y los Llanos. Analiza solo el texto radicado el 29 de octubre de 2026; los resultados son simulaciones con supuestos explícitos, no predicciones ni cifras oficiales.</p>
       <div id="pop-dg" class="dgsec">
         <span class="tag2">Alerta arrocera</span>
@@ -571,7 +581,8 @@ const FROWS=[
  {k:'agua',n:'Tarifa del distrito de riego',hoy:0,nuevo:.19,art:'Art. 45',g:'agua',hint:'Supuesto: promedio de Usocoello por cosecha'},
  {k:'seg',n:'Seguro agropecuario',hoy:.05,nuevo:.19,art:'Art. 106',g:'seg'},
  {k:'sec',n:'Secamiento o trilla contratados',hoy:0,nuevo:.19,art:'Art. 45',g:'serv'},
- {k:'equ',n:'Compra de tractor, cosechadora o equipo de riego (lo que le toca a cada hectárea)',hoy:0,nuevo:.19,art:'Art. 42',g:'equ'},
+ {k:'equ',n:'Compra de tractor, cosechadora o sistema de riego completo (lo que le toca a cada hectárea)',hint:'Motobombas, tuberías y repuestos sueltos ya pagan 19 %: no los ponga aquí',hoy:0,nuevo:.19,art:'Art. 42',g:'equ'},
+ {k:'impl',n:'Compra de arados, rastras, sembradoras o fumigadoras (lo que le toca a cada hectárea)',hoy:.05,nuevo:.19,art:'Art. 106',g:'equ'},
  {k:'arr',n:'Arriendo de la tierra',hoy:null,nuevo:null,art:'Sin cambio'},
  {k:'jor',n:'Labores y jornales',hoy:null,nuevo:null,art:'—'},
  {k:'tra',n:'Transporte y análisis de suelos',hoy:0,nuevo:0,art:'—'},
@@ -687,7 +698,7 @@ function renderAlarms(){
   const dgo=`onclick="document.getElementById('pop2-open').click()" role="button" tabindex="0" style="cursor:pointer"`;
   el('alarms').innerHTML=`
    <div class="al w2"><div class="big">Hasta $${m1(hMax[1])} millones más por hectárea</div><p><b>El arrocero pagará entre $${m1(hMin[1])} y $${m1(hMax[1])} millones más por cada hectárea que siembre y coseche</b>, desde 2028. Eso es en cada cosecha: quien saca dos al año lo paga dos veces. Por carga de paddy son ${fmt(tMin[1]*CARGA)} a ${fmt(tMax[1]*CARGA)} más, según la zona.</p><span class="artc">Costos UPRA de 6 zonas · arts. 42, 45 y 54</span></div>
-   <div class="al"><div class="big">19 % de IVA</div><p>al abono, los agroquímicos, la maquinaria y el riego desde 2028</p><span class="artc">Arts. 42, 45 y 106</span></div>
+   <div class="al"><div class="big">19 % de IVA</div><p>al abono, los agroquímicos, la maquinaria y el riego que hoy no lo pagan</p><span class="artc">Arts. 42, 45 y 106</span></div>
    <div class="al b"><div class="big">Por primera vez</div><p>los distritos de riego cobrarían IVA por el agua</p><span class="artc">Art. 45</span></div>
    <div class="al"><div class="big">3,5 veces</div><p>más impuesto al carbono en cada galón de ACPM</p><span class="artc">Art. 54</span></div>
    <div class="al p"><div class="big">Sin devolución</div><p>el arrocero no recupera ese IVA; el molino sí podría</p><span class="artc">Art. 46</span></div>
@@ -703,7 +714,7 @@ function updateAll(){
    ['Abonos y fertilizantes',`19 % de IVA que no recupera. ${v('fert')}`,'No los compra.','Art. 42'],
    ['Herbicidas, insecticidas y fungicidas',`19 % de IVA que no recupera. ${v('plag')}`,'No los compra.','Art. 42'],
    ['Maquinaria y servicios contratados (preparación, siembra, cosecha, asistencia técnica, secado)',`19 % de IVA que no recupera. ${v('serv')}`,'Si el arroz blanco queda exento, descuenta el IVA de los servicios y repuestos que compra.','Arts. 45 y 46'],
-   ['Compra de tractor, combinada o equipo de riego',`19 % de IVA que no recupera. ${v('equ')}`,'Si queda exento, descuenta el IVA de su maquinaria.','Arts. 42 y 46'],
+   ['Compra de tractor, combinada, sistema de riego o implementos',`Tractor, combinada y sistema de riego completo: 19 % de IVA. Arados, sembradoras y fumigadoras: de 5 % a 19 %. No lo recupera. ${v('equ')}`,'Si queda exento, descuenta el IVA de su maquinaria.','Arts. 42 y 46'],
    ['Agua del distrito de riego',`Pierde la exclusión de IVA. ${v('agua')}`,'No aplica.','Art. 45'],
    ['Seguro agropecuario',`Pasa de 5 % a 19 % de IVA. ${v('seg')}`,'Si queda exento, descuenta el IVA de sus seguros.','Art. 106'],
    ['ACPM (impuesto al carbono)',`El impuesto por galón sube unas 3,5 veces. ${v('comb')}`,'También lo paga en secado y transporte.','Art. 54'],
@@ -737,10 +748,11 @@ const SHEET_URL='https://script.google.com/macros/s/AKfycbyCIKwzLtxWfNEcaFtfdZo2
     const L=window.LAST_FINCA||{};
     const cols=['Sesión','Zona de referencia','Departamento','Municipio','Forma','Hectáreas','Cosechas al año','Cargas por hectárea','Precio por carga','Galones ACPM por ha','Trabajadores','Trabajadores 2-3 SMLMV','Trabajadores >3 SMLMV'];
     const vals=[sid,zonaTxt(),el('f-dep').value,el('f-mun').value,el('f-forma').value==='soc'?'Sociedad':'Persona natural',num('f-ha'),num('f-cic'),num('f-yld'),num('f-price'),num('f-gal'),num('f-wt'),num('f-w2'),num('f-w3')];
-    FROWS.forEach(r=>{cols.push(r.n+' ($/ha por cosecha)');vals.push(num('fr-'+r.k));});
+    FROWS.filter(r=>r.k!=='impl').forEach(r=>{cols.push(r.n+' ($/ha por cosecha)');vals.push(num('fr-'+r.k));});
     cols.push('Costo por ha 2026','Costo por ha 2027','Costo por ha 2028','Costo por ha 2029+','Aumento por ha por cosecha','Aumento por carga','Aumento total al año (2029+)');
     vals.push(...['c26','c27','c28','c29','dHa','dC','d29'].map(k=>Math.round(L[k]||0)));
     cols.push('Cálculo rápido: costo global por ha','Cálculo rápido: hectáreas','Cálculo rápido: zona'); vals.push(+(el('q-cost').value||'').replace(/\D/g,'')||0, num('q-ha'), (el('q-zona').selectedOptions[0]||{}).textContent||'');
+    cols.push('Compra de arados, sembradoras o fumigadoras ($/ha por cosecha)'); vals.push(num('fr-impl'));
     return {cols,vals};
   }
   function send(beacon){
