@@ -515,7 +515,7 @@ footer a{color:#f9a8d4} footer b{color:#fff}
         <div class="card t-f"><h3>Errores de redacción para señalar</h3>
           <ul>
             <li>«10.06 Arroz para consumo humano» aparece a la vez como excluido (art. 42) y como exento (art. 46).</li>
-            <li>El paddy y la semilla de arroz solo quedan excluidos por una frase entre paréntesis del art. 46; la lista de excluidos del art. 42 no los nombra.</li>
+            <li>El paddy y la semilla de arroz quedan excluidos solo por un paréntesis del art. 46, que dice: «excepto el arroz con cáscara o "Arroz Paddy" de la partida 10.06.10.90.00 y el arroz para la siembra de la partida 10.06.10.10.00, los cuales conservan la calidad de bienes excluidos del IVA». La lista de excluidos del art. 42 no los nombra: solo trae «10.06 Arroz para consumo humano».</li>
             <li>Las materias primas de fertilizantes y plaguicidas siguen excluidas (art. 424-1 no se toca), pero el producto final queda gravado.</li>
             <li>No hay transición para lo sembrado en 2027 y vendido en 2028.</li>
           </ul></div>
@@ -719,7 +719,7 @@ function updateAll(){
    ['Seguro agropecuario',`Pasa de 5 % a 19 % de IVA. ${v('seg')}`,'Si queda exento, descuenta el IVA de sus seguros.','Art. 106'],
    ['ACPM (impuesto al carbono)',`El impuesto por galón sube unas 3,5 veces. ${v('comb')}`,'También lo paga en secado y transporte.','Art. 54'],
    ['Nómina (SENA, ICBF y salud)',`Persona natural con 2 a 5 trabajadores: igual que hoy. Si produce como empresa, paga por quienes ganan más de 2 salarios mínimos. ${c('nom')>0.5?v('nom'):''}`,'Paga por quienes ganan más de 2 salarios mínimos.','Art. 20'],
-   ['IVA de lo que vende','El paddy sigue excluido: no le devuelven nada del IVA que pagó.','El arroz blanco pasa a exento: le devolverían el IVA de sus compras. El art. 42 lo deja también como excluido.','Arts. 42 y 46'],
+   ['IVA de lo que vende','El paddy sigue excluido (el art. 46 dice que «conserva la calidad de bienes excluidos del IVA»): no le devuelven nada del IVA que pagó.','El arroz blanco pasa a exento: le devolverían el IVA de sus compras. El art. 42 lo deja también como excluido.','Arts. 42 y 46'],
    ['Impuesto de renta','Persona natural: aparece un tramo de 9 % y se topan deducciones; a muchos les sube.','<b class="dn">Baja de 35 % a 33 % en 2027 y a 31 % desde 2028</b>: 4 de cada 35 pesos de renta menos.','Arts. 48 y 57'],
    ['Plantas nuevas (RUGE)','No aplica: pide una inversión mínima cercana a $135.000 millones.','<b class="dn">Renta de 20 % a 26 % por 16 años</b>, depreciación acelerada y sin impuesto al patrimonio.','Art. 69'],
    ['Patrimonio de los dueños','—','El umbral sube de 72.000 a 95.500 UVT y la tarifa máxima baja a 1 %.','Arts. 66 a 68']];
@@ -738,7 +738,7 @@ const GEO={"Amazonas":["Leticia","Puerto Nariño"],"Antioquia":["Abejorral","Abr
   dep.addEventListener('change',()=>{mun.innerHTML='<option value="">Prefiero no decirlo</option>';(GEO[dep.value]||[]).forEach(m=>mun.appendChild(opt(m)));mun.disabled=!dep.value;});
 })();
 /* ---- respaldo anónimo de cálculos en Google Sheets ---- */
-const SHEET_URL='https://script.google.com/macros/s/AKfycbyCIKwzLtxWfNEcaFtfdZo2-3hV16Dd_JQPYGf-PG6sKWet1MyI2cTyCA8mJDwbiMkzEA/exec';
+const SHEET_URL='https://script.google.com/macros/s/AKfycbyBie9PzB_Xj62xJHn-9Pw0-ertEu_HCTxAy8TtQ5v01KFbEI6aipAHrI6WLqdNRQc8/exec';
 (function(){
   if(!SHEET_URL||SHEET_URL.indexOf('http')!==0){const l=document.querySelector('p.share');if(l)l.hidden=true;return;}
   let sid; try{sid=sessionStorage.getItem('arroz_sid');if(!sid){sid=Date.now().toString(36)+Math.random().toString(36).slice(2,8);sessionStorage.setItem('arroz_sid',sid);}}catch(e){sid=Date.now().toString(36)+Math.random().toString(36).slice(2,8);}
